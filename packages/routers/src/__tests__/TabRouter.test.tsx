@@ -7,6 +7,7 @@ it('gets initial state from route names and params with initialRouteName', () =>
 
   expect(
     router.getInitialState({
+      initialRouteName: 'baz',
       routeNames: ['bar', 'baz', 'qux'],
       routeParamList: {
         baz: { answer: 42 },
@@ -29,7 +30,7 @@ it('gets initial state from route names and params with initialRouteName', () =>
 });
 
 it('gets initial state from route names and params without initialRouteName', () => {
-  const router = TabRouter({});
+  const router = TabRouter();
 
   expect(
     router.getInitialState({
@@ -55,7 +56,7 @@ it('gets initial state from route names and params without initialRouteName', ()
 });
 
 it('gets rehydrated state from partial state', () => {
-  const router = TabRouter({});
+  const router = TabRouter();
 
   const options = {
     routeNames: ['bar', 'baz', 'qux'],
@@ -190,7 +191,7 @@ it('gets rehydrated state from partial state', () => {
 });
 
 it("doesn't rehydrate state if it's not stale", () => {
-  const router = TabRouter({});
+  const router = TabRouter();
 
   const state: TabNavigationState = {
     index: 0,
@@ -370,7 +371,7 @@ it('restores correct history on rehydrating with backBehavior: none', () => {
 });
 
 it('gets state on route names change', () => {
-  const router = TabRouter({});
+  const router = TabRouter();
 
   expect(
     router.getStateForRouteNamesChange(
@@ -444,7 +445,7 @@ it('gets state on route names change', () => {
 });
 
 it('preserves focused route on route names change', () => {
-  const router = TabRouter({});
+  const router = TabRouter();
 
   expect(
     router.getStateForRouteNamesChange(
@@ -485,8 +486,50 @@ it('preserves focused route on route names change', () => {
   });
 });
 
+it('falls back to initial route if route is removed on route names change and initialRouteName is given', () => {
+  const router = TabRouter({ initialRouteName: 'bar' });
+
+  expect(
+    router.getStateForRouteNamesChange(
+      {
+        index: 1,
+        key: 'tab-test',
+        routeNames: ['bar', 'baz', 'qux'],
+        routes: [
+          { key: 'bar-test', name: 'bar' },
+          { key: 'baz-test', name: 'baz', params: { answer: 42 } },
+          { key: 'qux-test', name: 'qux', params: { name: 'Jane' } },
+        ],
+        history: [{ type: 'route', key: 'baz-test' }],
+        stale: false,
+        type: 'tab',
+      },
+      {
+        initialRouteName: 'fiz',
+        routeNames: ['qux', 'foo', 'fiz'],
+        routeParamList: {
+          qux: { name: 'John' },
+          fiz: { fruit: 'apple' },
+        },
+      }
+    )
+  ).toEqual({
+    index: 2,
+    key: 'tab-test',
+    routeNames: ['qux', 'foo', 'fiz'],
+    routes: [
+      { key: 'qux-test', name: 'qux', params: { name: 'Jane' } },
+      { key: 'foo-test', name: 'foo', params: undefined },
+      { key: 'fiz-test', name: 'fiz', params: { fruit: 'apple' } },
+    ],
+    history: [{ type: 'route', key: 'fiz-test' }],
+    stale: false,
+    type: 'tab',
+  });
+});
+
 it('falls back to first route if route is removed on route names change', () => {
-  const router = TabRouter({});
+  const router = TabRouter();
 
   expect(
     router.getStateForRouteNamesChange(
@@ -527,7 +570,7 @@ it('falls back to first route if route is removed on route names change', () => 
 });
 
 it('handles navigate action', () => {
-  const router = TabRouter({});
+  const router = TabRouter();
   const options = {
     routeNames: ['bar', 'baz'],
     routeParamList: {},
@@ -617,7 +660,7 @@ it('handles navigate action', () => {
 });
 
 it('handles jump to action', () => {
-  const router = TabRouter({});
+  const router = TabRouter();
   const options = {
     routeNames: ['bar', 'baz'],
     routeParamList: {},
@@ -889,6 +932,7 @@ it('handles back action with backBehavior: initialRoute and initialRouteName', (
   });
 
   const options = {
+    initialRouteName: 'baz',
     routeNames: ['bar', 'baz', 'qux'],
     routeParamList: {},
   };

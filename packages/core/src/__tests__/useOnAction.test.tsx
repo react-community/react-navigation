@@ -1,10 +1,6 @@
 import * as React from 'react';
 import { render } from 'react-native-testing-library';
-import {
-  Router,
-  DefaultRouterOptions,
-  NavigationState,
-} from '@react-navigation/routers';
+import { Router, NavigationState } from '@react-navigation/routers';
 import useNavigationBuilder from '../useNavigationBuilder';
 import BaseNavigationContainer from '../BaseNavigationContainer';
 import Screen from '../Screen';
@@ -16,8 +12,8 @@ import MockRouter, {
 beforeEach(() => (MockRouterKey.current = 0));
 
 it("lets parent handle the action if child didn't", () => {
-  function CurrentRouter(options: DefaultRouterOptions) {
-    const CurrentMockRouter = MockRouter(options);
+  function CurrentRouter() {
+    const CurrentMockRouter = MockRouter();
     const ParentRouter: Router<
       NavigationState,
       MockActions | { type: 'REVERSE' }
@@ -95,8 +91,8 @@ it("lets parent handle the action if child didn't", () => {
 it("lets children handle the action if parent didn't", () => {
   const CurrentParentRouter = MockRouter;
 
-  function CurrentChildRouter(options: DefaultRouterOptions) {
-    const CurrentMockRouter = MockRouter(options);
+  function CurrentChildRouter() {
+    const CurrentMockRouter = MockRouter();
     const ChildRouter: Router<
       NavigationState,
       MockActions | { type: 'REVERSE' }
@@ -227,8 +223,8 @@ it("lets children handle the action if parent didn't", () => {
 it("action doesn't bubble if target is specified", () => {
   const CurrentParentRouter = MockRouter;
 
-  function CurrentChildRouter(options: DefaultRouterOptions) {
-    const CurrentMockRouter = MockRouter(options);
+  function CurrentChildRouter() {
+    const CurrentMockRouter = MockRouter();
     const ChildRouter: Router<
       NavigationState,
       MockActions | { type: 'REVERSE' }

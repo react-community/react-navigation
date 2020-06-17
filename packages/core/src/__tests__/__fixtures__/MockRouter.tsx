@@ -4,22 +4,21 @@ import {
   CommonNavigationAction,
   NavigationState,
   Route,
-  DefaultRouterOptions,
 } from '@react-navigation/routers';
 
 export type MockActions = CommonNavigationAction | { type: 'NOOP' | 'UPDATE' };
 
 export const MockRouterKey = { current: 0 };
 
-export default function MockRouter(options: DefaultRouterOptions) {
+export default function MockRouter() {
   const router: Router<NavigationState, MockActions> = {
     type: 'test',
 
-    getInitialState({ routeNames, routeParamList }) {
+    getInitialState({ initialRouteName, routeNames, routeParamList }) {
       const index =
-        options.initialRouteName === undefined
+        initialRouteName === undefined
           ? 0
-          : routeNames.indexOf(options.initialRouteName);
+          : routeNames.indexOf(initialRouteName);
 
       return {
         stale: false,

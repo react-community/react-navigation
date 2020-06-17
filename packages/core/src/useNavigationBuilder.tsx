@@ -179,16 +179,19 @@ export default function useNavigationBuilder<
   }, [route]);
 
   const { children, ...rest } = options;
+  const routerOptions = {
+    ...((rest as unknown) as RouterOptions),
+    ...(route?.params &&
+    route.params.initial !== false &&
+    typeof route.params.screen === 'string'
+      ? { initialRouteName: route.params.screen }
+      : null),
+  };
   const { current: router } = React.useRef<Router<State, any>>(
-    createRouter({
-      ...((rest as unknown) as RouterOptions),
-      ...(route?.params &&
-      route.params.initial !== false &&
-      typeof route.params.screen === 'string'
-        ? { initialRouteName: route.params.screen }
-        : null),
-    })
+    createRouter(routerOptions)
   );
+
+  const { initialRouteName } = routerOptions;
 
   const routeConfigs = getRouteConfigsFromChildren<
     State,
@@ -267,6 +270,7 @@ export default function useNavigationBuilder<
     if (currentState === undefined || !isStateValid(currentState)) {
       return [
         router.getInitialState({
+          initialRouteName,
           routeNames,
           routeParamList,
         }),
@@ -275,6 +279,7 @@ export default function useNavigationBuilder<
     } else {
       return [
         router.getRehydratedState(currentState as PartialState<State>, {
+          initialRouteName,
           routeNames,
           routeParamList,
         }),
@@ -303,6 +308,7 @@ export default function useNavigationBuilder<
   if (!isArrayEqual(state.routeNames, routeNames)) {
     // When the list of route names change, the router should handle it to remove invalid routes
     nextState = router.getStateForRouteNamesChange(state, {
+      initialRouteName,
       routeNames,
       routeParamList,
     });
@@ -327,6 +333,7 @@ export default function useNavigationBuilder<
     nextState =
       updatedState !== null
         ? router.getRehydratedState(updatedState, {
+            initialRouteName,
             routeNames,
             routeParamList,
           })
@@ -448,6 +455,7 @@ export default function useNavigationBuilder<
     key: route?.key,
     listeners: actionListeners,
     routerConfigOptions: {
+      initialRouteName,
       routeNames,
       routeParamList,
     },

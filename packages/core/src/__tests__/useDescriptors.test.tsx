@@ -1,10 +1,6 @@
 import * as React from 'react';
 import { render, act } from 'react-native-testing-library';
-import {
-  DefaultRouterOptions,
-  NavigationState,
-  Router,
-} from '@react-navigation/routers';
+import { NavigationState, Router } from '@react-navigation/routers';
 import useNavigationBuilder from '../useNavigationBuilder';
 import BaseNavigationContainer from '../BaseNavigationContainer';
 import Screen from '../Screen';
@@ -420,8 +416,8 @@ it("returns correct value for canGoBack when it's not overridden", () => {
 });
 
 it(`returns false for canGoBack when current router doesn't handle GO_BACK`, () => {
-  function TestRouter(options: DefaultRouterOptions) {
-    const CurrentMockRouter = MockRouter(options);
+  function TestRouter() {
+    const CurrentMockRouter = MockRouter();
     const ChildRouter: Router<NavigationState, MockActions> = {
       ...CurrentMockRouter,
 
@@ -471,8 +467,8 @@ it(`returns false for canGoBack when current router doesn't handle GO_BACK`, () 
 });
 
 it('returns true for canGoBack when current router handles GO_BACK', () => {
-  function ParentRouter(options: DefaultRouterOptions) {
-    const CurrentMockRouter = MockRouter(options);
+  function ParentRouter() {
+    const CurrentMockRouter = MockRouter();
     const ChildRouter: Router<NavigationState, MockActions> = {
       ...CurrentMockRouter,
 
@@ -538,8 +534,8 @@ it('returns true for canGoBack when current router handles GO_BACK', () => {
 });
 
 it('returns true for canGoBack when parent router handles GO_BACK', () => {
-  function OverrodeRouter(options: DefaultRouterOptions) {
-    const CurrentMockRouter = MockRouter(options);
+  function OverrodeRouter() {
+    const CurrentMockRouter = MockRouter();
     const ChildRouter: Router<NavigationState, MockActions> = {
       ...CurrentMockRouter,
 

@@ -123,9 +123,9 @@ const changeIndex = (
 };
 
 export default function TabRouter({
-  initialRouteName,
   backBehavior = 'history',
-}: TabRouterOptions) {
+  ...options
+}: TabRouterOptions = {}) {
   const router: Router<
     TabNavigationState,
     TabActionType | CommonNavigationAction
@@ -134,7 +134,7 @@ export default function TabRouter({
 
     type: 'tab',
 
-    getInitialState({ routeNames, routeParamList }) {
+    getInitialState({ initialRouteName, routeNames, routeParamList }) {
       const index =
         initialRouteName !== undefined && routeNames.includes(initialRouteName)
           ? routeNames.indexOf(initialRouteName)
@@ -164,7 +164,10 @@ export default function TabRouter({
       };
     },
 
-    getRehydratedState(partialState, { routeNames, routeParamList }) {
+    getRehydratedState(
+      partialState,
+      { initialRouteName, routeNames, routeParamList }
+    ) {
       let state = partialState;
 
       if (state.stale === false) {
@@ -229,7 +232,10 @@ export default function TabRouter({
       };
     },
 
-    getStateForRouteNamesChange(state, { routeNames, routeParamList }) {
+    getStateForRouteNamesChange(
+      state,
+      { initialRouteName, routeNames, routeParamList }
+    ) {
       const routes = routeNames.map(
         (name) =>
           state.routes.find((r) => r.name === name) || {
@@ -239,10 +245,12 @@ export default function TabRouter({
           }
       );
 
-      const index = Math.max(
-        0,
-        routeNames.indexOf(state.routes[state.index].name)
-      );
+      const currentRouteName = state.routes[state.index].name;
+      const index = routeNames.includes(currentRouteName)
+        ? routeNames.indexOf(currentRouteName)
+        : initialRouteName && routeNames.includes(initialRouteName)
+        ? routeNames.indexOf(initialRouteName)
+        : 0;
 
       let history = state.history.filter((it) =>
         routes.find((r) => r.key === it.key)
@@ -273,10 +281,10 @@ export default function TabRouter({
         return state;
       }
 
-      return changeIndex(state, index, backBehavior, initialRouteName);
+      return changeIndex(state, index, backBehavior, options.initialRouteName);
     },
 
-    getStateForAction(state, action) {
+    getStateForAction(state, action, { initialRouteName }) {
       switch (action.type) {
         case 'JUMP_TO':
         case 'NAVIGATE': {

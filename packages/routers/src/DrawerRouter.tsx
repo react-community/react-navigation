@@ -100,7 +100,7 @@ const closeDrawer = (state: DrawerNavigationState): DrawerNavigationState => {
 export default function DrawerRouter({
   openByDefault,
   ...rest
-}: DrawerRouterOptions): Router<
+}: DrawerRouterOptions = {}): Router<
   DrawerNavigationState,
   DrawerActionType | CommonNavigationAction
 > {
@@ -114,8 +114,8 @@ export default function DrawerRouter({
 
     type: 'drawer',
 
-    getInitialState({ routeNames, routeParamList }) {
-      let state = router.getInitialState({ routeNames, routeParamList });
+    getInitialState(configOptions) {
+      let state = router.getInitialState(configOptions);
 
       if (openByDefault) {
         state = openDrawer(state);
@@ -129,15 +129,12 @@ export default function DrawerRouter({
       };
     },
 
-    getRehydratedState(partialState, { routeNames, routeParamList }) {
+    getRehydratedState(partialState, configOptions) {
       if (partialState.stale === false) {
         return partialState;
       }
 
-      let state = router.getRehydratedState(partialState, {
-        routeNames,
-        routeParamList,
-      });
+      let state = router.getRehydratedState(partialState, configOptions);
 
       if (isDrawerOpen(partialState)) {
         state = openDrawer(state);
@@ -160,7 +157,7 @@ export default function DrawerRouter({
       return closeDrawer(result);
     },
 
-    getStateForAction(state, action, options) {
+    getStateForAction(state, action, configOptions) {
       switch (action.type) {
         case 'OPEN_DRAWER':
           return openDrawer(state);
@@ -186,10 +183,10 @@ export default function DrawerRouter({
             }
           }
 
-          return router.getStateForAction(state, action, options);
+          return router.getStateForAction(state, action, configOptions);
 
         default:
-          return router.getStateForAction(state, action, options);
+          return router.getStateForAction(state, action, configOptions);
       }
     },
 

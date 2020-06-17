@@ -109,6 +109,7 @@ export type RouterFactory<
 > = (options: RouterOptions) => Router<State, Action>;
 
 export type RouterConfigOptions = {
+  initialRouteName?: string;
   routeNames: string[];
   routeParamList: ParamListBase;
 };

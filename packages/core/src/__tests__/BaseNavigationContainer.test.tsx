@@ -1,10 +1,6 @@
 import * as React from 'react';
 import { act, render } from 'react-native-testing-library';
-import {
-  DefaultRouterOptions,
-  NavigationState,
-  Router,
-} from '@react-navigation/routers';
+import { NavigationState, Router } from '@react-navigation/routers';
 import BaseNavigationContainer from '../BaseNavigationContainer';
 import NavigationStateContext from '../NavigationStateContext';
 import MockRouter, { MockActions } from './__fixtures__/MockRouter';
@@ -79,8 +75,8 @@ it('throws when nesting containers', () => {
 it('handle dispatching with ref', () => {
   const CurrentParentRouter = MockRouter;
 
-  function CurrentChildRouter(options: DefaultRouterOptions) {
-    const CurrentMockRouter = MockRouter(options);
+  function CurrentChildRouter() {
+    const CurrentMockRouter = MockRouter();
     const ChildRouter: Router<
       NavigationState,
       MockActions | { type: 'REVERSE' }

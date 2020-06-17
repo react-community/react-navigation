@@ -742,8 +742,8 @@ it('navigates to nested child in a navigator', () => {
 });
 
 it('navigates to nested child in a navigator with initial: false', () => {
-  const TestRouter: typeof MockRouter = (options) => {
-    const router = MockRouter(options);
+  const TestRouter: typeof MockRouter = () => {
+    const router = MockRouter();
 
     return {
       ...router,

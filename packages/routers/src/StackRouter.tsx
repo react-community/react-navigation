@@ -94,7 +94,7 @@ export const StackActions = {
   },
 };
 
-export default function StackRouter(options: StackRouterOptions) {
+export default function StackRouter() {
   const router: Router<
     StackNavigationState,
     CommonNavigationAction | StackActionType
@@ -103,11 +103,15 @@ export default function StackRouter(options: StackRouterOptions) {
 
     type: 'stack',
 
-    getInitialState({ routeNames, routeParamList }) {
+    getInitialState({
+      initialRouteName: _initialRouteName,
+      routeNames,
+      routeParamList,
+    }) {
       const initialRouteName =
-        options.initialRouteName !== undefined &&
-        routeNames.includes(options.initialRouteName)
-          ? options.initialRouteName
+        _initialRouteName !== undefined &&
+        routeNames.includes(_initialRouteName)
+          ? _initialRouteName
           : routeNames[0];
 
       return {
@@ -126,7 +130,10 @@ export default function StackRouter(options: StackRouterOptions) {
       };
     },
 
-    getRehydratedState(partialState, { routeNames, routeParamList }) {
+    getRehydratedState(
+      partialState,
+      { initialRouteName: _initialRouteName, routeNames, routeParamList }
+    ) {
       let state = partialState;
 
       if (state.stale === false) {
@@ -152,9 +159,7 @@ export default function StackRouter(options: StackRouterOptions) {
 
       if (routes.length === 0) {
         const initialRouteName =
-          options.initialRouteName !== undefined
-            ? options.initialRouteName
-            : routeNames[0];
+          _initialRouteName !== undefined ? _initialRouteName : routeNames[0];
 
         routes.push({
           key: `${initialRouteName}-${nanoid()}`,
@@ -173,16 +178,19 @@ export default function StackRouter(options: StackRouterOptions) {
       };
     },
 
-    getStateForRouteNamesChange(state, { routeNames, routeParamList }) {
+    getStateForRouteNamesChange(
+      state,
+      { initialRouteName: _initialRouteName, routeNames, routeParamList }
+    ) {
       const routes = state.routes.filter((route) =>
         routeNames.includes(route.name)
       );
 
       if (routes.length === 0) {
         const initialRouteName =
-          options.initialRouteName !== undefined &&
-          routeNames.includes(options.initialRouteName)
-            ? options.initialRouteName
+          _initialRouteName !== undefined &&
+          routeNames.includes(_initialRouteName)
+            ? _initialRouteName
             : routeNames[0];
 
         routes.push({

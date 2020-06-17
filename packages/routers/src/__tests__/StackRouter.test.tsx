@@ -3,10 +3,11 @@ import { CommonActions, StackRouter, StackActions } from '..';
 jest.mock('nanoid/non-secure', () => ({ nanoid: () => 'test' }));
 
 it('gets initial state from route names and params with initialRouteName', () => {
-  const router = StackRouter({ initialRouteName: 'baz' });
+  const router = StackRouter();
 
   expect(
     router.getInitialState({
+      initialRouteName: 'baz',
       routeNames: ['bar', 'baz', 'qux'],
       routeParamList: {
         baz: { answer: 42 },
@@ -24,7 +25,7 @@ it('gets initial state from route names and params with initialRouteName', () =>
 });
 
 it('gets initial state from route names and params without initialRouteName', () => {
-  const router = StackRouter({});
+  const router = StackRouter();
 
   expect(
     router.getInitialState({
@@ -45,7 +46,7 @@ it('gets initial state from route names and params without initialRouteName', ()
 });
 
 it('gets rehydrated state from partial state', () => {
-  const router = StackRouter({});
+  const router = StackRouter();
 
   const options = {
     routeNames: ['bar', 'baz', 'qux'],
@@ -121,7 +122,7 @@ it('gets rehydrated state from partial state', () => {
 });
 
 it("doesn't rehydrate state if it's not stale", () => {
-  const router = StackRouter({});
+  const router = StackRouter();
 
   const state = {
     index: 0,
@@ -141,7 +142,7 @@ it("doesn't rehydrate state if it's not stale", () => {
 });
 
 it('gets state on route names change', () => {
-  const router = StackRouter({});
+  const router = StackRouter();
 
   expect(
     router.getStateForRouteNamesChange(
@@ -208,7 +209,7 @@ it('gets state on route names change', () => {
 });
 
 it('gets state on route names change with initialRouteName', () => {
-  const router = StackRouter({ initialRouteName: 'qux' });
+  const router = StackRouter();
 
   expect(
     router.getStateForRouteNamesChange(
@@ -224,6 +225,7 @@ it('gets state on route names change with initialRouteName', () => {
         type: 'stack',
       },
       {
+        initialRouteName: 'qux',
         routeNames: ['baz', 'qux'],
         routeParamList: {
           baz: { name: 'John' },
@@ -241,7 +243,7 @@ it('gets state on route names change with initialRouteName', () => {
 });
 
 it('handles navigate action', () => {
-  const router = StackRouter({});
+  const router = StackRouter();
   const options = {
     routeNames: ['baz', 'bar', 'qux'],
     routeParamList: {},
@@ -428,7 +430,7 @@ it('handles navigate action', () => {
 });
 
 it('handles go back action', () => {
-  const router = StackRouter({});
+  const router = StackRouter();
   const options = {
     routeNames: ['baz', 'bar', 'qux'],
     routeParamList: {},
@@ -476,7 +478,7 @@ it('handles go back action', () => {
 });
 
 it('handles pop action', () => {
-  const router = StackRouter({});
+  const router = StackRouter();
   const options = {
     routeNames: ['baz', 'bar', 'qux'],
     routeParamList: {},
@@ -649,7 +651,7 @@ it('handles pop action', () => {
 });
 
 it('handles pop to top action', () => {
-  const router = StackRouter({});
+  const router = StackRouter();
   const options = {
     routeNames: ['baz', 'bar', 'qux'],
     routeParamList: {},
@@ -683,7 +685,7 @@ it('handles pop to top action', () => {
 });
 
 it('replaces focused screen with replace', () => {
-  const router = StackRouter({});
+  const router = StackRouter();
   const options = {
     routeNames: ['foo', 'bar', 'baz', 'qux'],
     routeParamList: {},
@@ -721,7 +723,7 @@ it('replaces focused screen with replace', () => {
 });
 
 it('replaces active screen with replace', () => {
-  const router = StackRouter({});
+  const router = StackRouter();
   const options = {
     routeNames: ['foo', 'bar', 'baz', 'qux'],
     routeParamList: {},
@@ -762,7 +764,7 @@ it('replaces active screen with replace', () => {
 });
 
 it("doesn't handle replace if source key isn't present", () => {
-  const router = StackRouter({});
+  const router = StackRouter();
   const options = {
     routeNames: ['foo', 'bar', 'baz', 'qux'],
     routeParamList: {},
@@ -793,7 +795,7 @@ it("doesn't handle replace if source key isn't present", () => {
 });
 
 it("doesn't handle replace if screen to replace with isn't present", () => {
-  const router = StackRouter({});
+  const router = StackRouter();
   const options = {
     routeNames: ['foo', 'bar', 'baz', 'qux'],
     routeParamList: {},
@@ -823,7 +825,7 @@ it("doesn't handle replace if screen to replace with isn't present", () => {
 });
 
 it('handles push action', () => {
-  const router = StackRouter({});
+  const router = StackRouter();
   const options = {
     routeNames: ['baz', 'bar', 'qux'],
     routeParamList: {
@@ -898,7 +900,7 @@ it('handles push action', () => {
 });
 
 it('changes index on focus change', () => {
-  const router = StackRouter({});
+  const router = StackRouter();
 
   expect(
     router.getStateForRouteFocus(

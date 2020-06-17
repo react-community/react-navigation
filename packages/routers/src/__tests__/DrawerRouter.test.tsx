@@ -12,6 +12,7 @@ it('gets initial state from route names and params with initialRouteName', () =>
 
   expect(
     router.getInitialState({
+      initialRouteName: 'baz',
       routeNames: ['bar', 'baz', 'qux'],
       routeParamList: {
         baz: { answer: 42 },
@@ -34,7 +35,7 @@ it('gets initial state from route names and params with initialRouteName', () =>
 });
 
 it('gets initial state from route names and params without initialRouteName', () => {
-  const router = DrawerRouter({});
+  const router = DrawerRouter();
 
   expect(
     router.getInitialState({
@@ -60,7 +61,7 @@ it('gets initial state from route names and params without initialRouteName', ()
 });
 
 it('gets rehydrated state from partial state', () => {
-  const router = DrawerRouter({});
+  const router = DrawerRouter();
 
   const options = {
     routeNames: ['bar', 'baz', 'qux'],
@@ -197,7 +198,7 @@ it('gets rehydrated state from partial state', () => {
 });
 
 it("doesn't rehydrate state if it's not stale", () => {
-  const router = DrawerRouter({});
+  const router = DrawerRouter();
 
   const state: DrawerNavigationState = {
     index: 0,
@@ -222,7 +223,7 @@ it("doesn't rehydrate state if it's not stale", () => {
 });
 
 it('handles navigate action', () => {
-  const router = DrawerRouter({});
+  const router = DrawerRouter();
   const options = {
     routeNames: ['baz', 'bar'],
     routeParamList: {},
@@ -263,7 +264,7 @@ it('handles navigate action', () => {
 });
 
 it('handles navigate action with open drawer', () => {
-  const router = DrawerRouter({});
+  const router = DrawerRouter();
   const options = {
     routeNames: ['baz', 'bar'],
     routeParamList: {},
@@ -304,7 +305,7 @@ it('handles navigate action with open drawer', () => {
 });
 
 it('handles open drawer action', () => {
-  const router = DrawerRouter({});
+  const router = DrawerRouter();
   const options = {
     routeNames: ['baz', 'bar'],
     routeParamList: {},
@@ -359,7 +360,7 @@ it('handles open drawer action', () => {
 });
 
 it('handles close drawer action', () => {
-  const router = DrawerRouter({});
+  const router = DrawerRouter();
   const options = {
     routeNames: ['baz', 'bar'],
     routeParamList: {},
@@ -417,7 +418,7 @@ it('handles close drawer action', () => {
 });
 
 it('handles toggle drawer action', () => {
-  const router = DrawerRouter({});
+  const router = DrawerRouter();
   const options = {
     routeNames: ['baz', 'bar'],
     routeParamList: {},

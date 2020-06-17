@@ -27,7 +27,7 @@ it('preserves reference for navigation objects', () => {
   const getState = () => state;
   const navigation = {} as any;
   const setOptions = (() => {}) as any;
-  const router = MockRouter({});
+  const router = MockRouter();
 
   const Test = () => {
     const previous = React.useRef<any>();
@@ -101,10 +101,8 @@ it('returns correct value for isFocused', () => {
 });
 
 it('returns correct value for isFocused after changing screens', () => {
-  const TestRouter = (
-    options: Parameters<typeof MockRouter>[0]
-  ): ReturnType<typeof MockRouter> => {
-    const router = MockRouter(options);
+  const TestRouter = (): ReturnType<typeof MockRouter> => {
+    const router = MockRouter();
 
     return {
       ...router,

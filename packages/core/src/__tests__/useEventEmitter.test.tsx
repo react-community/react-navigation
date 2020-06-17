@@ -296,17 +296,19 @@ it('fires focus and blur events in nested navigator', () => {
 });
 
 it('fires blur event when a route is removed with a delay', async () => {
-  const TestRouter = (options: any): Router<NavigationState, any> => {
-    const router = MockRouter(options);
+  const TestRouter = (): Router<NavigationState, any> => {
+    const router = MockRouter();
 
     return {
       ...router,
 
-      getInitialState({ routeNames, routeParamList }) {
+      getInitialState({
+        initialRouteName: _initialRouteName,
+        routeNames,
+        routeParamList,
+      }) {
         const initialRouteName =
-          options.initialRouteName !== undefined
-            ? options.initialRouteName
-            : routeNames[0];
+          _initialRouteName !== undefined ? _initialRouteName : routeNames[0];
 
         return {
           stale: false,
