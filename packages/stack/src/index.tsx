@@ -6,7 +6,11 @@ import * as TransitionPresets from './TransitionConfigs/TransitionPresets';
 /**
  * Navigators
  */
-export { default as createStackNavigator } from './navigators/createStackNavigator';
+export {
+  default as createStackNavigator,
+  StackNavigator,
+  Props as StackNavigatorProps
+} from './navigators/createStackNavigator';
 
 export const Assets = [
   // eslint-disable-next-line import/no-commonjs

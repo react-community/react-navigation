@@ -9,6 +9,8 @@ import {
   StackRouterOptions,
   StackNavigationState,
   StackActions,
+  ParamListBase,
+  TypedNavigator,
 } from '@react-navigation/native';
 import StackView from '../views/Stack/StackView';
 import type {
@@ -17,11 +19,11 @@ import type {
   StackNavigationEventMap,
 } from '../types';
 
-type Props = DefaultNavigatorOptions<StackNavigationOptions> &
+export type Props = DefaultNavigatorOptions<StackNavigationOptions> &
   StackRouterOptions &
   StackNavigationConfig;
 
-function StackNavigator({
+export function StackNavigator({
   initialRouteName,
   children,
   screenOptions,
@@ -96,3 +98,13 @@ export default createNavigatorFactory<
   StackNavigationEventMap,
   typeof StackNavigator
 >(StackNavigator);
+
+export type TypedStackNavigator<
+  ParamList extends ParamListBase
+> = TypedNavigator<
+  ParamList,
+  StackNavigationState,
+  StackNavigationOptions,
+  StackNavigationEventMap,
+  typeof StackNavigator
+>;
