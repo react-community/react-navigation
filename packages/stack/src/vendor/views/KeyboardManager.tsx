@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { TextInput, Platform, Keyboard } from 'react-native';
+import { TextInput, Keyboard } from 'react-native';
 
 type Props = {
   enabled: boolean;
   children: (props: {
     onPageChangeStart: () => void;
-    onPageChangeConfirm: () => void;
+    onPageChangeConfirm: (closing: Boolean) => void;
     onPageChangeCancel: () => void;
   }) => React.ReactNode;
 };
@@ -49,7 +49,7 @@ export default class KeyboardManager extends React.Component<Props> {
     this.startTimestamp = Date.now();
   };
 
-  private handlePageChangeConfirm = () => {
+  private handlePageChangeConfirm = (closing: Boolean) => {
     if (!this.props.enabled) {
       return;
     }
@@ -58,10 +58,10 @@ export default class KeyboardManager extends React.Component<Props> {
 
     const input = this.previouslyFocusedTextInput;
 
-    if (Platform.OS === 'android') {
-      Keyboard.dismiss();
-    } else if (input) {
+    if (closing && input) {
       TextInput.State.blurTextInput(input);
+    } else {
+      Keyboard.dismiss();
     }
 
     // Cleanup the ID on successful page change
