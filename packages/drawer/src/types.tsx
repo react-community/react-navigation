@@ -174,6 +174,10 @@ export type DrawerContentOptions = {
    */
   itemStyle?: StyleProp<ViewStyle>;
   /**
+   * Style object to apply to the `View` that wrap Text label.
+   */
+  labelContainerStyle?: StyleProp<ViewStyle>;
+  /**
    * Style object to apply to the `Text` inside content section which renders a label.
    */
   labelStyle?: StyleProp<TextStyle>;

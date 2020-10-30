@@ -31,6 +31,7 @@ export default function DrawerItemList({
   activeBackgroundColor,
   inactiveBackgroundColor,
   itemStyle,
+  labelContainerStyle,
   labelStyle,
 }: Props) {
   const buildLink = useLinkBuilder();
@@ -55,6 +56,7 @@ export default function DrawerItemList({
         inactiveTintColor={inactiveTintColor}
         activeBackgroundColor={activeBackgroundColor}
         inactiveBackgroundColor={inactiveBackgroundColor}
+        labelContainerStyle={labelContainerStyle}
         labelStyle={labelStyle}
         style={itemStyle}
         to={buildLink(route.name, route.params)}
