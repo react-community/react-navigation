@@ -5,7 +5,7 @@ This library is a community effort: it can only be great if we all help out in o
 - Responding to one of the open [issues](https://github.com/react-navigation/react-navigation/issues). Even if you can't resolve or fully answer a question, asking for more information or clarity on an issue is extremely beneficial for someone to come after you to resolve the issue.
 - Creating public example repositories or [Snacks](https://snack.expo.io/) of navigation problems you have solved and sharing the links.
 - Answering questions on [Stack Overflow](https://stackoverflow.com/search?q=react-navigation).
-- Answering questions in our [Reactiflux](https://www.reactiflux.com/) channel.
+- Answering questions in our [Reactiflux](https://discord.gg/4xEK3nD) channel.
 - Providing feedback on the open [PRs](https://github.com/react-navigation/react-navigation/pulls).
 - Providing feedback on the open [RFCs](https://github.com/react-navigation/rfcs).
 - Improving the [website](https://github.com/react-navigation/react-navigation.github.io).

@@ -46,7 +46,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: "Hey! Thanks for opening the issue. The issue tracker is intended for only tracking bug reports. This helps us prioritize fixing bugs in the library. Seems you have a usage question or an issue unrelated to this library. Please ask the question on [StackOverflow](https://stackoverflow.com/questions/tagged/react-navigation) instead using the `react-navigation` label. You can also chat with other community members on [Reactiflux Discord server](https://www.reactiflux.com/) in the `#react-navigation` channel.\n\nIf you believe that this is actually a bug in the library, please open a new issue and fill the issue template with relevant information."
+              body: "Hey! Thanks for opening the issue. The issue tracker is intended for only tracking bug reports. This helps us prioritize fixing bugs in the library. Seems you have a usage question or an issue unrelated to this library. Please ask the question on [StackOverflow](https://stackoverflow.com/questions/tagged/react-navigation) instead using the `react-navigation` label. You can also chat with other community members on [Reactiflux Discord server](https://discord.gg/4xEK3nD) in the `#react-navigation` channel.\n\nIf you believe that this is actually a bug in the library, please open a new issue and fill the issue template with relevant information."
             })
 
   feature-request:
