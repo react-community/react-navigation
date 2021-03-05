@@ -49,21 +49,23 @@ export type StackNavigationHelpers = NavigationHelpers<
 
 export type StackNavigationProp<
   ParamList extends ParamListBase,
-  RouteName extends keyof ParamList = string
+  RouteName extends keyof ParamList = string,
+  HeaderOptions = {}
 > = NavigationProp<
   ParamList,
   RouteName,
   StackNavigationState<ParamList>,
-  StackNavigationOptions,
+  StackNavigationOptions<HeaderOptions>,
   StackNavigationEventMap
 > &
   StackActionHelpers<ParamList>;
 
 export type StackScreenProps<
   ParamList extends ParamListBase,
-  RouteName extends keyof ParamList = string
+  RouteName extends keyof ParamList = string,
+  HeaderOptions = {}
 > = {
-  navigation: StackNavigationProp<ParamList, RouteName>;
+  navigation: StackNavigationProp<ParamList, RouteName, HeaderOptions>;
   route: RouteProp<ParamList, RouteName>;
 };
 
@@ -75,7 +77,7 @@ export type GestureDirection =
   | 'vertical'
   | 'vertical-inverted';
 
-export type Scene<T> = {
+export type Scene<T, HeaderOptions = {}> = {
   /**
    * Current route object,
    */
@@ -83,7 +85,7 @@ export type Scene<T> = {
   /**
    * Descriptor object for the route containing options and navigation object.
    */
-  descriptor: StackDescriptor;
+  descriptor: StackDescriptor<HeaderOptions>;
   /**
    * Animated nodes representing the progress of the animation.
    */
@@ -220,7 +222,7 @@ export type StackHeaderOptions = {
   headerStatusBarHeight?: number;
 };
 
-export type StackHeaderProps = {
+export type StackHeaderProps<HeaderOptions = {}> = {
   /**
    * Mode of the header: `float` renders a single floating header across all screens,
    * `screen` renders separate headers for each screen.
@@ -237,11 +239,11 @@ export type StackHeaderProps = {
   /**
    * Object representing the current scene, such as the route object and animation progress.
    */
-  scene: Scene<Route<string>>;
+  scene: Scene<Route<string>, HeaderOptions>;
   /**
    * Object representing the previous scene.
    */
-  previous?: Scene<Route<string>>;
+  previous?: Scene<Route<string>, HeaderOptions>;
   /**
    * Navigation prop for the header.
    */
@@ -252,18 +254,21 @@ export type StackHeaderProps = {
   styleInterpolator: StackHeaderStyleInterpolator;
 };
 
-export type StackDescriptor = Descriptor<
+export type StackDescriptor<HeaderOptions = {}> = Descriptor<
   ParamListBase,
   string,
   StackNavigationState<ParamListBase>,
-  StackNavigationOptions
+  StackNavigationOptions<HeaderOptions>
 >;
 
 export type StackDescriptorMap = {
   [key: string]: StackDescriptor;
 };
 
-export type StackNavigationOptions = StackHeaderOptions &
+export type StackNavigationOptions<HeaderOptions = {}> = EmptyFallback<
+  HeaderOptions,
+  StackHeaderOptions
+> &
   Partial<TransitionPreset> & {
     /**
      * String that can be displayed in the header as a fallback for `headerTitle`.
@@ -272,7 +277,7 @@ export type StackNavigationOptions = StackHeaderOptions &
     /**
      * Function that given `HeaderProps` returns a React Element to display as a header.
      */
-    header?: (props: StackHeaderProps) => React.ReactNode;
+    header?: (props: StackHeaderProps<HeaderOptions>) => React.ReactNode;
     /**
      * Whether to show the header. The header is shown by default unless `headerMode` was set to `none`.
      * Setting this to `false` hides the header.
@@ -659,3 +664,7 @@ export type TransitionPreset = {
    */
   headerStyleInterpolator: StackHeaderStyleInterpolator;
 };
+
+type EmptyFallback<T, Fallback> = T extends { [key: string]: never }
+  ? Fallback
+  : T;

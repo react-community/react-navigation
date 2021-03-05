@@ -93,9 +93,18 @@ function StackNavigator({
   );
 }
 
-export default createNavigatorFactory<
-  StackNavigationState<ParamListBase>,
-  StackNavigationOptions,
-  StackNavigationEventMap,
-  typeof StackNavigator
->(StackNavigator);
+function createStackNavigator<
+  ParamList extends ParamListBase,
+  HeaderOptions = {}
+>() {
+  const navigatorFactory = createNavigatorFactory<
+    StackNavigationState<ParamListBase>,
+    StackNavigationOptions<HeaderOptions>,
+    StackNavigationEventMap,
+    typeof StackNavigator
+  >(StackNavigator);
+
+  return navigatorFactory<ParamList>();
+}
+
+export default createStackNavigator;
