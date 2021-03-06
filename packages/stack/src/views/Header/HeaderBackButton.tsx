@@ -31,6 +31,7 @@ export default function HeaderBackButton({
   truncatedLabel = 'Back',
   accessibilityLabel = label && label !== 'Back' ? `${label}, back` : 'Go back',
   style,
+  headerDefaultBackIconStyle,
 }: Props) {
   const { dark, colors } = useTheme();
 
@@ -77,6 +78,7 @@ export default function HeaderBackButton({
         <Image
           style={[
             styles.icon,
+            headerDefaultBackIconStyle,
             Boolean(labelVisible) && styles.iconWithLabel,
             Boolean(tintColor) && { tintColor },
           ]}

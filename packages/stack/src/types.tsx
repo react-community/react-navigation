@@ -69,6 +69,14 @@ export type StackScreenProps<
 
 export type Layout = { width: number; height: number };
 
+export type DefaultBackIconStyle = {
+  width?: number;
+  height?: number;
+  marginRight?: number;
+  marginLeft?: number;
+  marginVertical?: number;
+};
+
 export type GestureDirection =
   | 'horizontal'
   | 'horizontal-inverted'
@@ -172,6 +180,10 @@ export type StackHeaderOptions = {
    * It receives a number of arguments when rendered (`onPress`, `label`, `labelStyle` and more.
    */
   headerLeft?: (props: StackHeaderLeftButtonProps) => React.ReactNode;
+  /**
+   * Style object for default back icon
+   */
+  headerDefaultBackIconStyle?: DefaultBackIconStyle;
   /**
    * Style object for the container of the `headerLeft` component, for example to add padding.
    */
@@ -401,6 +413,10 @@ export type StackHeaderLeftButtonProps = {
    * By default, this is only shown on iOS.
    */
   label?: string;
+  /**
+   * width, height, marginRight, marginLeft, marginVertical of back button.
+   */
+  headerDefaultBackIconStyle?: DefaultBackIconStyle;
   /**
    * Label text to show when there isn't enough space for the full label.
    */

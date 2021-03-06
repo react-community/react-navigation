@@ -171,6 +171,7 @@ export default function HeaderSegment(props: Props) {
     headerRightContainerStyle: rightContainerStyle,
     headerTitleContainerStyle: titleContainerStyle,
     headerStyle: customHeaderStyle,
+    headerDefaultBackIconStyle,
     headerStatusBarHeight = isParentHeaderShown ? 0 : insets.top,
     styleInterpolator,
   } = props;
@@ -301,6 +302,7 @@ export default function HeaderSegment(props: Props) {
         onLabelLayout: handleLeftLabelLayout,
         screenLayout: layout,
         titleLayout,
+        headerDefaultBackIconStyle,
         tintColor: headerTintColor,
         canGoBack: Boolean(onGoBack),
       })
