@@ -37,7 +37,8 @@ export default function DrawerItemList({
 
   return (state.routes.map((route, i) => {
     const focused = i === state.index;
-    const { title, drawerLabel, drawerIcon } = descriptors[route.key].options;
+    const { title, drawerLabel, drawerIcon, style } = descriptors[route.key].options;
+    const drawerItemStyle = style || itemStyle;
 
     return (
       <DrawerItem
@@ -56,7 +57,7 @@ export default function DrawerItemList({
         activeBackgroundColor={activeBackgroundColor}
         inactiveBackgroundColor={inactiveBackgroundColor}
         labelStyle={labelStyle}
-        style={itemStyle}
+        style={drawerItemStyle}
         to={buildLink(route.name, route.params)}
         onPress={() => {
           navigation.dispatch({
