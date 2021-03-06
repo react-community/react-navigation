@@ -249,7 +249,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [5.5.1](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.5.0...@react-navigation/native@5.5.1) (2020-06-06)
+## [5.5.1](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.5.0...@react-navigation/native@5.5.1) (2020-06-06)
 
 **Note:** Version bump only for package @react-navigation/native
 
@@ -257,32 +257,24 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [5.5.0](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.4.3...@react-navigation/native@5.5.0) (2020-05-27)
+# [5.5.0](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.4.3...@react-navigation/native@5.5.0) (2020-05-27)
 
 
 ### Bug Fixes
 
-* export types from /native ([af1722d](https://github.com/react-navigation/react-navigation/tree/main/packages/native/commit/af1722d1e915f3ec234df202f74c4b4c631472c7))
+* export types from /native ([af1722d](https://github.com/react-navigation/react-navigation/commit/af1722d1e915f3ec234df202f74c4b4c631472c7))
 
 
 ### Features
 
-* add a `ServerContainer` component for SSR ([#8297](https://github.com/react-navigation/react-navigation/tree/main/packages/native/issues/8297)) ([68e750d](https://github.com/react-navigation/react-navigation/tree/main/packages/native/commit/68e750d5a6d198a2f5bdb86ba631de0a27732943))
-* add ref to get current options in `ServerContainer` ([#8333](https://github.com/react-navigation/react-navigation/tree/main/packages/native/issues/8333)) ([0b1a718](https://github.com/react-navigation/react-navigation/tree/main/packages/native/commit/0b1a718756e208d84b20e45ca56004332308ad54))
+* add a `ServerContainer` component for SSR ([#8297](https://github.com/react-navigation/react-navigation/issues/8297)) ([68e750d](https://github.com/react-navigation/react-navigation/commit/68e750d5a6d198a2f5bdb86ba631de0a27732943))
+* add ref to get current options in `ServerContainer` ([#8333](https://github.com/react-navigation/react-navigation/issues/8333)) ([0b1a718](https://github.com/react-navigation/react-navigation/commit/0b1a718756e208d84b20e45ca56004332308ad54))
 
 
 
 
 
-## [5.4.3](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.4.2...@react-navigation/native@5.4.3) (2020-05-23)
-
-**Note:** Version bump only for package @react-navigation/native
-
-
-
-
-
-## [5.4.2](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.4.1...@react-navigation/native@5.4.2) (2020-05-20)
+## [5.4.3](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.4.2...@react-navigation/native@5.4.3) (2020-05-23)
 
 **Note:** Version bump only for package @react-navigation/native
 
@@ -290,7 +282,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [5.4.1](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.4.0...@react-navigation/native@5.4.1) (2020-05-20)
+## [5.4.2](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.4.1...@react-navigation/native@5.4.2) (2020-05-20)
 
 **Note:** Version bump only for package @react-navigation/native
 
@@ -298,31 +290,31 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [5.4.0](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.3.2...@react-navigation/native@5.4.0) (2020-05-16)
+## [5.4.1](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.4.0...@react-navigation/native@5.4.1) (2020-05-20)
+
+**Note:** Version bump only for package @react-navigation/native
+
+
+
+
+
+# [5.4.0](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.3.2...@react-navigation/native@5.4.0) (2020-05-16)
 
 
 ### Bug Fixes
 
-* fix types for linking options ([d14f38b](https://github.com/react-navigation/react-navigation/tree/main/packages/native/commit/d14f38b80ad569d5828c1919cea426c659173924))
+* fix types for linking options ([d14f38b](https://github.com/react-navigation/react-navigation/commit/d14f38b80ad569d5828c1919cea426c659173924))
 
 
 ### Features
 
-* add a PathConfig type ([60cb3c9](https://github.com/react-navigation/react-navigation/tree/main/packages/native/commit/60cb3c9ba76d7ef166c9fe8b55f23728975b5b6e))
+* add a PathConfig type ([60cb3c9](https://github.com/react-navigation/react-navigation/commit/60cb3c9ba76d7ef166c9fe8b55f23728975b5b6e))
 
 
 
 
 
-## [5.3.2](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.3.1...@react-navigation/native@5.3.2) (2020-05-14)
-
-**Note:** Version bump only for package @react-navigation/native
-
-
-
-
-
-## [5.3.1](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.3.0...@react-navigation/native@5.3.1) (2020-05-14)
+## [5.3.2](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.3.1...@react-navigation/native@5.3.2) (2020-05-14)
 
 **Note:** Version bump only for package @react-navigation/native
 
@@ -330,104 +322,112 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [5.3.0](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.2.6...@react-navigation/native@5.3.0) (2020-05-10)
+## [5.3.1](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.3.0...@react-navigation/native@5.3.1) (2020-05-14)
+
+**Note:** Version bump only for package @react-navigation/native
+
+
+
+
+
+# [5.3.0](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.2.6...@react-navigation/native@5.3.0) (2020-05-10)
 
 
 ### Features
 
-* initialState should take priority over deep link ([039017b](https://github.com/react-navigation/react-navigation/tree/main/packages/native/commit/039017bc2af69120d2d10e8f2c8a62919c37eb65))
+* initialState should take priority over deep link ([039017b](https://github.com/react-navigation/react-navigation/commit/039017bc2af69120d2d10e8f2c8a62919c37eb65))
 
 
 
 
 
-## [5.2.6](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.2.5...@react-navigation/native@5.2.6) (2020-05-08)
-
-
-### Bug Fixes
-
-* fix building typescript definitions. closes [#8216](https://github.com/react-navigation/react-navigation/tree/main/packages/native/issues/8216) ([47a1229](https://github.com/react-navigation/react-navigation/tree/main/packages/native/commit/47a12298378747edd2d22e54dc1c8677f98c49b4))
-
-
-
-
-
-## [5.2.5](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.2.4...@react-navigation/native@5.2.5) (2020-05-08)
+## [5.2.6](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.2.5...@react-navigation/native@5.2.6) (2020-05-08)
 
 
 ### Bug Fixes
 
-* return a promise-like from getInitialState ([#8210](https://github.com/react-navigation/react-navigation/tree/main/packages/native/issues/8210)) ([85ae378](https://github.com/react-navigation/react-navigation/tree/main/packages/native/commit/85ae378d8cb1073895b281e13ebccee881d4c062))
+* fix building typescript definitions. closes [#8216](https://github.com/react-navigation/react-navigation/issues/8216) ([47a1229](https://github.com/react-navigation/react-navigation/commit/47a12298378747edd2d22e54dc1c8677f98c49b4))
 
 
 
 
 
-## [5.2.4](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.2.3...@react-navigation/native@5.2.4) (2020-05-05)
-
-
-### Bug Fixes
-
-* return undefined for buildLink if linking is not enabled ([9fd2635](https://github.com/react-navigation/react-navigation/tree/main/packages/native/commit/9fd2635756362c8da79656b4d9b101bebaaf7003))
-
-
-
-
-
-## [5.2.3](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.2.2...@react-navigation/native@5.2.3) (2020-05-01)
+## [5.2.5](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.2.4...@react-navigation/native@5.2.5) (2020-05-08)
 
 
 ### Bug Fixes
 
-* default linking enabled to true ([c7b8e2e](https://github.com/react-navigation/react-navigation/tree/main/packages/native/commit/c7b8e2e9666733143eef156b27f3e4995c36b856))
+* return a promise-like from getInitialState ([#8210](https://github.com/react-navigation/react-navigation/issues/8210)) ([85ae378](https://github.com/react-navigation/react-navigation/commit/85ae378d8cb1073895b281e13ebccee881d4c062))
 
 
 
 
 
-## [5.2.2](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.2.1...@react-navigation/native@5.2.2) (2020-05-01)
-
-
-### Bug Fixes
-
-* don't throw when using 'useLinking'. fixes [#8171](https://github.com/react-navigation/react-navigation/tree/main/packages/native/issues/8171) ([10eca8b](https://github.com/react-navigation/react-navigation/tree/main/packages/native/commit/10eca8b92edbce6dbef8abaf189e4b59a29b3748))
-
-
-
-
-
-## [5.2.1](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.2.0...@react-navigation/native@5.2.1) (2020-04-30)
+## [5.2.4](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.2.3...@react-navigation/native@5.2.4) (2020-05-05)
 
 
 ### Bug Fixes
 
-* render fallback only if linking is enabled. closes [#8161](https://github.com/react-navigation/react-navigation/tree/main/packages/native/issues/8161) ([1c075ff](https://github.com/react-navigation/react-navigation/tree/main/packages/native/commit/1c075ffb169d233ed0515efea264a5a69b4de52e))
+* return undefined for buildLink if linking is not enabled ([9fd2635](https://github.com/react-navigation/react-navigation/commit/9fd2635756362c8da79656b4d9b101bebaaf7003))
 
 
 
 
 
-# [5.2.0](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.1.7...@react-navigation/native@5.2.0) (2020-04-30)
+## [5.2.3](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.2.2...@react-navigation/native@5.2.3) (2020-05-01)
 
 
 ### Bug Fixes
 
-* add catch to thenable returned by getInitialState ([d6fa279](https://github.com/react-navigation/react-navigation/tree/main/packages/native/commit/d6fa279d9371c7a6403d10d209a2a64147891c63))
-* return onPress instead of onClick for useLinkProps ([ae5442e](https://github.com/react-navigation/react-navigation/tree/main/packages/native/commit/ae5442ebe812b91fa1f12164f27d1aeed918ab0e))
+* default linking enabled to true ([c7b8e2e](https://github.com/react-navigation/react-navigation/commit/c7b8e2e9666733143eef156b27f3e4995c36b856))
+
+
+
+
+
+## [5.2.2](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.2.1...@react-navigation/native@5.2.2) (2020-05-01)
+
+
+### Bug Fixes
+
+* don't throw when using 'useLinking'. fixes [#8171](https://github.com/react-navigation/react-navigation/issues/8171) ([10eca8b](https://github.com/react-navigation/react-navigation/commit/10eca8b92edbce6dbef8abaf189e4b59a29b3748))
+
+
+
+
+
+## [5.2.1](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.2.0...@react-navigation/native@5.2.1) (2020-04-30)
+
+
+### Bug Fixes
+
+* render fallback only if linking is enabled. closes [#8161](https://github.com/react-navigation/react-navigation/issues/8161) ([1c075ff](https://github.com/react-navigation/react-navigation/commit/1c075ffb169d233ed0515efea264a5a69b4de52e))
+
+
+
+
+
+# [5.2.0](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.1.7...@react-navigation/native@5.2.0) (2020-04-30)
+
+
+### Bug Fixes
+
+* add catch to thenable returned by getInitialState ([d6fa279](https://github.com/react-navigation/react-navigation/commit/d6fa279d9371c7a6403d10d209a2a64147891c63))
+* return onPress instead of onClick for useLinkProps ([ae5442e](https://github.com/react-navigation/react-navigation/commit/ae5442ebe812b91fa1f12164f27d1aeed918ab0e))
 
 
 ### Features
 
-* add `useLinkBuilder` hook to build links ([2792f43](https://github.com/react-navigation/react-navigation/tree/main/packages/native/commit/2792f438fe45428fe193e3708fee7ad61966cbf4))
-* add a useLinkProps hook ([f2291d1](https://github.com/react-navigation/react-navigation/tree/main/packages/native/commit/f2291d110faa2aa8e10c9133c1c0c28d54af7917))
-* add action prop to Link ([942d2be](https://github.com/react-navigation/react-navigation/tree/main/packages/native/commit/942d2be2c72720469475ce12ec8df23825994dbf))
-* add Link component as useLinkTo hook for navigating to links ([2573b5b](https://github.com/react-navigation/react-navigation/tree/main/packages/native/commit/2573b5beaac1240434e52f3f57bb29da2f541c88))
+* add `useLinkBuilder` hook to build links ([2792f43](https://github.com/react-navigation/react-navigation/commit/2792f438fe45428fe193e3708fee7ad61966cbf4))
+* add a useLinkProps hook ([f2291d1](https://github.com/react-navigation/react-navigation/commit/f2291d110faa2aa8e10c9133c1c0c28d54af7917))
+* add action prop to Link ([942d2be](https://github.com/react-navigation/react-navigation/commit/942d2be2c72720469475ce12ec8df23825994dbf))
+* add Link component as useLinkTo hook for navigating to links ([2573b5b](https://github.com/react-navigation/react-navigation/commit/2573b5beaac1240434e52f3f57bb29da2f541c88))
 
 
 
 
 
-## [5.1.7](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.1.6...@react-navigation/native@5.1.7) (2020-04-27)
+## [5.1.7](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.1.6...@react-navigation/native@5.1.7) (2020-04-27)
 
 **Note:** Version bump only for package @react-navigation/native
 
@@ -435,26 +435,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [5.1.6](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.1.5...@react-navigation/native@5.1.6) (2020-04-17)
+## [5.1.6](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.1.5...@react-navigation/native@5.1.6) (2020-04-17)
 
 
 ### Bug Fixes
 
-* handle in-page go back when there's no history ([6bdf6ae](https://github.com/react-navigation/react-navigation/tree/main/packages/native/commit/6bdf6ae4ed0f83ac1deb3172d9075a6a2adbbe11)), closes [#7852](https://github.com/react-navigation/react-navigation/tree/main/packages/native/issues/7852)
+* handle in-page go back when there's no history ([6bdf6ae](https://github.com/react-navigation/react-navigation/commit/6bdf6ae4ed0f83ac1deb3172d9075a6a2adbbe11)), closes [#7852](https://github.com/react-navigation/react-navigation/issues/7852)
 
 
 
 
 
-## [5.1.5](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.1.4...@react-navigation/native@5.1.5) (2020-04-08)
-
-**Note:** Version bump only for package @react-navigation/native
-
-
-
-
-
-## [5.1.4](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.1.3...@react-navigation/native@5.1.4) (2020-03-30)
+## [5.1.5](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.1.4...@react-navigation/native@5.1.5) (2020-04-08)
 
 **Note:** Version bump only for package @react-navigation/native
 
@@ -462,26 +454,26 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [5.1.3](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.1.2...@react-navigation/native@5.1.3) (2020-03-23)
+## [5.1.4](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.1.3...@react-navigation/native@5.1.4) (2020-03-30)
+
+**Note:** Version bump only for package @react-navigation/native
+
+
+
+
+
+## [5.1.3](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.1.2...@react-navigation/native@5.1.3) (2020-03-23)
 
 
 ### Bug Fixes
 
-* add info about android launchMode in useLinking error ([d94e43c](https://github.com/react-navigation/react-navigation/tree/main/packages/native/commit/d94e43c3c8625b209a5c883b8cb560496d07fda7))
+* add info about android launchMode in useLinking error ([d94e43c](https://github.com/react-navigation/react-navigation/commit/d94e43c3c8625b209a5c883b8cb560496d07fda7))
 
 
 
 
 
-## [5.1.2](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.1.1...@react-navigation/native@5.1.2) (2020-03-22)
-
-**Note:** Version bump only for package @react-navigation/native
-
-
-
-
-
-## [5.1.1](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.1.0...@react-navigation/native@5.1.1) (2020-03-19)
+## [5.1.2](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.1.1...@react-navigation/native@5.1.2) (2020-03-22)
 
 **Note:** Version bump only for package @react-navigation/native
 
@@ -489,26 +481,26 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [5.1.0](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.0.10...@react-navigation/native@5.1.0) (2020-03-17)
+## [5.1.1](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.1.0...@react-navigation/native@5.1.1) (2020-03-19)
+
+**Note:** Version bump only for package @react-navigation/native
+
+
+
+
+
+# [5.1.0](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.0.10...@react-navigation/native@5.1.0) (2020-03-17)
 
 
 ### Features
 
-* add permanent drawer type ([#7818](https://github.com/react-navigation/react-navigation/tree/main/packages/native/issues/7818)) ([6a5d0a0](https://github.com/react-navigation/react-navigation/tree/main/packages/native/commit/6a5d0a035afae60d91aef78401ec8826295746fe))
+* add permanent drawer type ([#7818](https://github.com/react-navigation/react-navigation/issues/7818)) ([6a5d0a0](https://github.com/react-navigation/react-navigation/commit/6a5d0a035afae60d91aef78401ec8826295746fe))
 
 
 
 
 
-## [5.0.10](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.0.9...@react-navigation/native@5.0.10) (2020-03-16)
-
-**Note:** Version bump only for package @react-navigation/native
-
-
-
-
-
-## [5.0.9](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.0.8...@react-navigation/native@5.0.9) (2020-03-03)
+## [5.0.10](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.0.9...@react-navigation/native@5.0.10) (2020-03-16)
 
 **Note:** Version bump only for package @react-navigation/native
 
@@ -516,7 +508,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [5.0.8](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.0.7...@react-navigation/native@5.0.8) (2020-02-26)
+## [5.0.9](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.0.8...@react-navigation/native@5.0.9) (2020-03-03)
 
 **Note:** Version bump only for package @react-navigation/native
 
@@ -524,7 +516,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [5.0.7](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.0.6...@react-navigation/native@5.0.7) (2020-02-21)
+## [5.0.8](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.0.7...@react-navigation/native@5.0.8) (2020-02-26)
 
 **Note:** Version bump only for package @react-navigation/native
 
@@ -532,7 +524,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [5.0.6](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.0.5...@react-navigation/native@5.0.6) (2020-02-19)
+## [5.0.7](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.0.6...@react-navigation/native@5.0.7) (2020-02-21)
 
 **Note:** Version bump only for package @react-navigation/native
 
@@ -540,7 +532,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [5.0.5](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.0.4...@react-navigation/native@5.0.5) (2020-02-14)
+## [5.0.6](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.0.5...@react-navigation/native@5.0.6) (2020-02-19)
 
 **Note:** Version bump only for package @react-navigation/native
 
@@ -548,7 +540,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [5.0.4](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.0.3...@react-navigation/native@5.0.4) (2020-02-14)
+## [5.0.5](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.0.4...@react-navigation/native@5.0.5) (2020-02-14)
 
 **Note:** Version bump only for package @react-navigation/native
 
@@ -556,7 +548,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [5.0.3](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.0.2...@react-navigation/native@5.0.3) (2020-02-12)
+## [5.0.4](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.0.3...@react-navigation/native@5.0.4) (2020-02-14)
 
 **Note:** Version bump only for package @react-navigation/native
 
@@ -564,26 +556,26 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [5.0.2](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.0.1...@react-navigation/native@5.0.2) (2020-02-11)
+## [5.0.3](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.0.2...@react-navigation/native@5.0.3) (2020-02-12)
+
+**Note:** Version bump only for package @react-navigation/native
+
+
+
+
+
+## [5.0.2](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.0.1...@react-navigation/native@5.0.2) (2020-02-11)
 
 
 ### Bug Fixes
 
-* make getInitialState async on web ([6c6102b](https://github.com/react-navigation/react-navigation/tree/main/packages/native/commit/6c6102b4597b5f0e3eada9e802bc5c171ee988d0))
+* make getInitialState async on web ([6c6102b](https://github.com/react-navigation/react-navigation/commit/6c6102b4597b5f0e3eada9e802bc5c171ee988d0))
 
 
 
 
 
-## [5.0.1](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.0.0-alpha.35...@react-navigation/native@5.0.1) (2020-02-10)
-
-**Note:** Version bump only for package @react-navigation/native
-
-
-
-
-
-# [5.0.0-alpha.35](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.0.0-alpha.34...@react-navigation/native@5.0.0-alpha.35) (2020-02-04)
+## [5.0.1](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.0.0-alpha.35...@react-navigation/native@5.0.1) (2020-02-10)
 
 **Note:** Version bump only for package @react-navigation/native
 
@@ -591,7 +583,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [5.0.0-alpha.34](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.0.0-alpha.33...@react-navigation/native@5.0.0-alpha.34) (2020-02-04)
+# [5.0.0-alpha.35](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.0.0-alpha.34...@react-navigation/native@5.0.0-alpha.35) (2020-02-04)
 
 **Note:** Version bump only for package @react-navigation/native
 
@@ -599,7 +591,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [5.0.0-alpha.33](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.0.0-alpha.32...@react-navigation/native@5.0.0-alpha.33) (2020-02-03)
+# [5.0.0-alpha.34](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.0.0-alpha.33...@react-navigation/native@5.0.0-alpha.34) (2020-02-04)
 
 **Note:** Version bump only for package @react-navigation/native
 
@@ -607,87 +599,49 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [5.0.0-alpha.32](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.0.0-alpha.29...@react-navigation/native@5.0.0-alpha.32) (2020-02-02)
+# [5.0.0-alpha.33](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.0.0-alpha.32...@react-navigation/native@5.0.0-alpha.33) (2020-02-03)
+
+**Note:** Version bump only for package @react-navigation/native
+
+
+
+
+
+# [5.0.0-alpha.32](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.0.0-alpha.29...@react-navigation/native@5.0.0-alpha.32) (2020-02-02)
 
 
 ### Bug Fixes
 
-* add licenses ([0c159db](https://github.com/react-navigation/react-navigation/tree/main/packages/native/commit/0c159db4c9bc85e83b5cfe6819ab2562669a4d8f))
+* add licenses ([0c159db](https://github.com/react-navigation/react-navigation/commit/0c159db4c9bc85e83b5cfe6819ab2562669a4d8f))
 
 
 ### Features
 
-* add error if multiple instances of useLinking are used ([#310](https://github.com/react-navigation/react-navigation/tree/main/packages/native/issues/310)) ([4bc0c8f](https://github.com/react-navigation/react-navigation/tree/main/packages/native/commit/4bc0c8f66f98c0f8ce4e766648125640d01780c4))
-* integrate with history API on web ([5a3f835](https://github.com/react-navigation/react-navigation/tree/main/packages/native/commit/5a3f8356b05bff7ed20893a5db6804612da3e568))
+* add error if multiple instances of useLinking are used ([#310](https://github.com/react-navigation/react-navigation/issues/310)) ([4bc0c8f](https://github.com/react-navigation/react-navigation/commit/4bc0c8f66f98c0f8ce4e766648125640d01780c4))
+* integrate with history API on web ([5a3f835](https://github.com/react-navigation/react-navigation/commit/5a3f8356b05bff7ed20893a5db6804612da3e568))
 
 
 
 
 
-# [5.0.0-alpha.30](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.0.0-alpha.29...@react-navigation/native@5.0.0-alpha.30) (2020-02-02)
-
-
-### Bug Fixes
-
-* add licenses ([0c159db](https://github.com/react-navigation/react-navigation/tree/main/packages/native/commit/0c159db4c9bc85e83b5cfe6819ab2562669a4d8f))
-
-
-### Features
-
-* add error if multiple instances of useLinking are used ([#310](https://github.com/react-navigation/react-navigation/tree/main/packages/native/issues/310)) ([4bc0c8f](https://github.com/react-navigation/react-navigation/tree/main/packages/native/commit/4bc0c8f66f98c0f8ce4e766648125640d01780c4))
-* integrate with history API on web ([5a3f835](https://github.com/react-navigation/react-navigation/tree/main/packages/native/commit/5a3f8356b05bff7ed20893a5db6804612da3e568))
-
-
-
-
-
-# [5.0.0-alpha.29](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.0.0-alpha.28...@react-navigation/native@5.0.0-alpha.29) (2020-01-24)
-
-**Note:** Version bump only for package @react-navigation/native
-
-
-
-
-
-# [5.0.0-alpha.28](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.0.0-alpha.27...@react-navigation/native@5.0.0-alpha.28) (2020-01-23)
-
-
-### Features
-
-* let the navigator specify if default can be prevented ([da67e13](https://github.com/react-navigation/react-navigation/tree/main/packages/native/commit/da67e134d2157201360427d3c10da24f24cae7aa))
-
-
-
-
-
-# [5.0.0-alpha.27](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.0.0-alpha.26...@react-navigation/native@5.0.0-alpha.27) (2020-01-14)
-
-**Note:** Version bump only for package @react-navigation/native
-
-
-
-
-
-# [5.0.0-alpha.26](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.0.0-alpha.25...@react-navigation/native@5.0.0-alpha.26) (2020-01-13)
+# [5.0.0-alpha.30](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.0.0-alpha.29...@react-navigation/native@5.0.0-alpha.30) (2020-02-02)
 
 
 ### Bug Fixes
 
-* make sure paths aren't aliased when building definitions ([65a5dac](https://github.com/react-navigation/react-navigation/tree/main/packages/native/commit/65a5dac2bf887f4ba081ab15bd4c9870bb15697f)), closes [#265](https://github.com/react-navigation/react-navigation/tree/main/packages/native/issues/265)
+* add licenses ([0c159db](https://github.com/react-navigation/react-navigation/commit/0c159db4c9bc85e83b5cfe6819ab2562669a4d8f))
+
+
+### Features
+
+* add error if multiple instances of useLinking are used ([#310](https://github.com/react-navigation/react-navigation/issues/310)) ([4bc0c8f](https://github.com/react-navigation/react-navigation/commit/4bc0c8f66f98c0f8ce4e766648125640d01780c4))
+* integrate with history API on web ([5a3f835](https://github.com/react-navigation/react-navigation/commit/5a3f8356b05bff7ed20893a5db6804612da3e568))
 
 
 
 
 
-# [5.0.0-alpha.25](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.0.0-alpha.24...@react-navigation/native@5.0.0-alpha.25) (2020-01-13)
-
-**Note:** Version bump only for package @react-navigation/native
-
-
-
-
-
-# [5.0.0-alpha.24](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.0.0-alpha.22...@react-navigation/native@5.0.0-alpha.24) (2020-01-09)
+# [5.0.0-alpha.29](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.0.0-alpha.28...@react-navigation/native@5.0.0-alpha.29) (2020-01-24)
 
 **Note:** Version bump only for package @react-navigation/native
 
@@ -695,7 +649,53 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [5.0.0-alpha.23](https://github.com/react-navigation/react-navigation/tree/main/packages/native/compare/@react-navigation/native@5.0.0-alpha.22...@react-navigation/native@5.0.0-alpha.23) (2020-01-09)
+# [5.0.0-alpha.28](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.0.0-alpha.27...@react-navigation/native@5.0.0-alpha.28) (2020-01-23)
+
+
+### Features
+
+* let the navigator specify if default can be prevented ([da67e13](https://github.com/react-navigation/react-navigation/commit/da67e134d2157201360427d3c10da24f24cae7aa))
+
+
+
+
+
+# [5.0.0-alpha.27](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.0.0-alpha.26...@react-navigation/native@5.0.0-alpha.27) (2020-01-14)
+
+**Note:** Version bump only for package @react-navigation/native
+
+
+
+
+
+# [5.0.0-alpha.26](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.0.0-alpha.25...@react-navigation/native@5.0.0-alpha.26) (2020-01-13)
+
+
+### Bug Fixes
+
+* make sure paths aren't aliased when building definitions ([65a5dac](https://github.com/react-navigation/react-navigation/commit/65a5dac2bf887f4ba081ab15bd4c9870bb15697f)), closes [#265](https://github.com/react-navigation/react-navigation/issues/265)
+
+
+
+
+
+# [5.0.0-alpha.25](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.0.0-alpha.24...@react-navigation/native@5.0.0-alpha.25) (2020-01-13)
+
+**Note:** Version bump only for package @react-navigation/native
+
+
+
+
+
+# [5.0.0-alpha.24](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.0.0-alpha.22...@react-navigation/native@5.0.0-alpha.24) (2020-01-09)
+
+**Note:** Version bump only for package @react-navigation/native
+
+
+
+
+
+# [5.0.0-alpha.23](https://github.com/react-navigation/react-navigation/compare/@react-navigation/native@5.0.0-alpha.22...@react-navigation/native@5.0.0-alpha.23) (2020-01-09)
 
 **Note:** Version bump only for package @react-navigation/native
 
