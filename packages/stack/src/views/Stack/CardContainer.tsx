@@ -6,6 +6,7 @@ import Card from './Card';
 import HeaderHeightContext from '../../utils/HeaderHeightContext';
 import HeaderShownContext from '../../utils/HeaderShownContext';
 import PreviousSceneContext from '../../utils/PreviousSceneContext';
+import useFocusTrap from '../../utils/useFocusTrap';
 import type {
   Scene,
   Layout,
@@ -202,6 +203,10 @@ function CardContainer({
   const isCurrentHeaderShown = headerMode !== 'none' && headerShown !== false;
   const previousScene = getPreviousScene({ route: scene.route });
 
+  const screenRef = React.useRef<View>(null);
+
+  useFocusTrap(screenRef, focused);
+
   return (
     <Card
       index={index}
@@ -242,7 +247,7 @@ function CardContainer({
       ]}
     >
       <View style={styles.container}>
-        <View style={styles.scene}>
+        <View style={styles.scene} ref={screenRef}>
           <PreviousSceneContext.Provider value={previousScene}>
             <HeaderShownContext.Provider
               value={isParentHeaderShown || isCurrentHeaderShown}

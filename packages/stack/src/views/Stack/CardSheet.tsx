@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { View, ViewProps, StyleSheet } from 'react-native';
+import canUseDOM from '../../utils/canUseDOM';
 
 type Props = ViewProps & {
   enabled: boolean;
@@ -18,7 +19,7 @@ export default React.forwardRef<View, Props>(function CardSheet(
   const [fill, setFill] = React.useState(false);
 
   React.useEffect(() => {
-    if (typeof document === 'undefined' || !document.body) {
+    if (!canUseDOM) {
       // Only run when DOM is available
       return;
     }
