@@ -127,6 +127,15 @@ export default function useLinking(
   }, []);
 
   React.useEffect(() => {
+    function isRouteExist(deepLinkState, routeState): boolean {
+      const routeExist = deepLinkState.routes.some((r) => !routeState?.routeNames.includes(r.name))
+      const nestedRouteState = routeState.routes[routeState.index]?.state
+      if (!routeExist && nestedRouteState) {
+        return isRouteExist(deepLinkState, nestedRouteState)
+      } else {
+        return routeExist
+      }
+    }
     const listener = (url: string) => {
       if (!enabled) {
         return;
@@ -143,9 +152,7 @@ export default function useLinking(
           // Otherwise there's an error in the linking configuration
           const rootState = navigation.getRootState();
 
-          if (
-            state.routes.some((r) => !rootState?.routeNames.includes(r.name))
-          ) {
+          if (!isRouteExist(state, rootState)) {
             console.warn(
               "The navigation state parsed from the URL contains routes not present in the root navigator. This usually means that the linking configuration doesn't match the navigation structure. See https://reactnavigation.org/docs/configuring-links for more details on how to specify a linking configuration."
             );
