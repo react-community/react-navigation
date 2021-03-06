@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Platform, GestureResponderEvent } from 'react-native';
 import {
   NavigationAction,
-  NavigationHelpersContext,
+  RootNavigationContext
 } from '@react-navigation/core';
 import useLinkTo from './useLinkTo';
 
@@ -18,7 +18,7 @@ type Props = {
  * @param props.action Optional action to use for in-page navigation. By default, the path is parsed to an action based on linking config.
  */
 export default function useLinkProps({ to, action }: Props) {
-  const navigation = React.useContext(NavigationHelpersContext);
+  const navigation = React.useContext(RootNavigationContext);
   const linkTo = useLinkTo();
 
   const onPress = (

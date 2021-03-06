@@ -2,12 +2,12 @@ import * as React from 'react';
 import {
   getStateFromPath,
   getActionFromState,
-  NavigationContext,
+  RootNavigationContext,
 } from '@react-navigation/core';
 import LinkingContext from './LinkingContext';
 
 export default function useLinkTo() {
-  const navigation = React.useContext(NavigationContext);
+  const navigation = React.useContext(RootNavigationContext);
   const linking = React.useContext(LinkingContext);
 
   const linkTo = React.useCallback(
@@ -29,20 +29,12 @@ export default function useLinkTo() {
         : getStateFromPath(path, options?.config);
 
       if (state) {
-        let root = navigation;
-        let current;
-
-        // Traverse up to get the root navigation
-        while ((current = root.dangerouslyGetParent())) {
-          root = current;
-        }
-
         const action = getActionFromState(state, options?.config);
 
         if (action !== undefined) {
-          root.dispatch(action);
+          navigation.dispatch(action);
         } else {
-          root.reset(state);
+          navigation.reset(state);
         }
       } else {
         throw new Error('Failed to parse the path to a navigation state.');

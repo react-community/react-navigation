@@ -25,6 +25,7 @@ import type {
   NavigationContainerRef,
   NavigationContainerProps,
 } from './types';
+import RootNavigationContext from './RootNavigationContext';
 
 type State = NavigationState | PartialState<NavigationState> | undefined;
 
@@ -197,7 +198,7 @@ const BaseNavigationContainer = React.forwardRef(
 
     const { addOptionsGetter, getCurrentOptions } = useOptionsGetters({});
 
-    React.useImperativeHandle(ref, () => ({
+    const rootNavigation = React.useMemo<NavigationContainerRef>(() => ({
       ...(Object.keys(CommonActions) as (keyof typeof CommonActions)[]).reduce<
         any
       >((acc, name) => {
@@ -220,6 +221,8 @@ const BaseNavigationContainer = React.forwardRef(
       getCurrentRoute,
       getCurrentOptions,
     }));
+
+    React.useImperativeHandle(ref, rootNavigation, [rootNavigation]);
 
     const onDispatchAction = React.useCallback(
       (action: NavigationAction, noop: boolean) => {
@@ -416,11 +419,13 @@ const BaseNavigationContainer = React.forwardRef(
     if (independent) {
       // We need to clear any existing contexts for nested independent container to work correctly
       element = (
-        <NavigationRouteContext.Provider value={undefined}>
-          <NavigationContext.Provider value={undefined}>
-            {element}
-          </NavigationContext.Provider>
-        </NavigationRouteContext.Provider>
+        <RootNavigationContext.Provider value={rootNavigation}>
+          <NavigationRouteContext.Provider value={undefined}>
+            <NavigationContext.Provider value={undefined}>
+              {element}
+            </NavigationContext.Provider>
+          </NavigationRouteContext.Provider>
+        </RootNavigationContext.Provider>
       );
     }
 

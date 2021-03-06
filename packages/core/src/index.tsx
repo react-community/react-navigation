@@ -6,6 +6,7 @@ export { default as createNavigatorFactory } from './createNavigatorFactory';
 export { default as NavigationHelpersContext } from './NavigationHelpersContext';
 export { default as NavigationContext } from './NavigationContext';
 export { default as NavigationRouteContext } from './NavigationRouteContext';
+export { default as RootNavigationContext } from './RootNavigationContext';
 
 export { default as CurrentRenderContext } from './CurrentRenderContext';
 
