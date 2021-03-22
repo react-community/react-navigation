@@ -93,6 +93,7 @@ type Props = {
   statusBarAnimation: 'slide' | 'none' | 'fade';
   overlayStyle?: StyleProp<ViewStyle>;
   drawerStyle?: StyleProp<ViewStyle>;
+  wrapStyle?: StyleProp<ViewStyle>;
   sceneContainerStyle?: StyleProp<ViewStyle>;
   renderDrawerContent: Renderer;
   renderSceneContent: Renderer;
@@ -576,6 +577,7 @@ export default class DrawerView extends React.Component<Props> {
       sceneContainerStyle,
       drawerStyle,
       overlayStyle,
+      wrapStyle,
       renderDrawerContent,
       renderSceneContent,
       gestureHandlerProps,
@@ -636,6 +638,7 @@ export default class DrawerView extends React.Component<Props> {
               flexDirection:
                 drawerType === 'permanent' && !isRight ? 'row-reverse' : 'row',
             },
+            wrapStyle as any,
           ]}
         >
           <Animated.View
