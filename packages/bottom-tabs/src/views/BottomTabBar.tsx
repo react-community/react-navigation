@@ -285,7 +285,11 @@ export default function BottomTabBar({
       ]}
       pointerEvents={isTabBarHidden ? 'none' : 'auto'}
     >
-      <View style={styles.content} onLayout={handleLayout}>
+      <View
+        accessibilityRole="tablist"
+        style={styles.content}
+        onLayout={handleLayout}
+      >
         {routes.map((route, index) => {
           const focused = index === state.index;
           const { options } = descriptors[route.key];
@@ -319,13 +323,6 @@ export default function BottomTabBar({
               ? options.title
               : route.name;
 
-          const accessibilityLabel =
-            options.tabBarAccessibilityLabel !== undefined
-              ? options.tabBarAccessibilityLabel
-              : typeof label === 'string'
-              ? `${label}, tab, ${index + 1} of ${routes.length}`
-              : undefined;
-
           return (
             <NavigationContext.Provider
               key={route.key}
@@ -338,7 +335,7 @@ export default function BottomTabBar({
                   horizontal={hasHorizontalLabels}
                   onPress={onPress}
                   onLongPress={onLongPress}
-                  accessibilityLabel={accessibilityLabel}
+                  accessibilityLabel={options.tabBarAccessibilityLabel}
                   to={buildLink(route.name, route.params)}
                   testID={options.tabBarTestID}
                   allowFontScaling={options.tabBarAllowFontScaling}

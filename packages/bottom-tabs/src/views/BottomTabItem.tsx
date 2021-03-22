@@ -263,7 +263,7 @@ export default function BottomTabBarItem({
     onLongPress,
     testID,
     accessibilityLabel,
-    accessibilityRole: 'button',
+    accessibilityRole: 'tab',
     accessibilityState: { selected: focused },
     // @ts-expect-error: keep for compatibility with older React Native versions
     accessibilityStates: focused ? ['selected'] : [],
