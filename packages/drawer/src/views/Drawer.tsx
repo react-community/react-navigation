@@ -523,6 +523,8 @@ export default class DrawerView extends React.Component<Props> {
   };
 
   private toggleDrawer = (open: boolean) => {
+    this.isOpen.setValue(open ? TRUE : FALSE)
+    
     if (this.currentOpenValue !== open) {
       this.nextIsOpen.setValue(open ? TRUE : FALSE);
 
