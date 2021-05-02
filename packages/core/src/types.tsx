@@ -395,7 +395,13 @@ export type RouteConfig<
     | ScreenOptions
     | ((props: {
         route: RouteProp<ParamList, RouteName>;
-        navigation: any;
+        navigation: NavigationProp<
+          ParamList,
+          RouteName,
+          State,
+          ScreenOptions,
+          EventMap
+        >;
       }) => ScreenOptions);
 
   /**
@@ -405,7 +411,13 @@ export type RouteConfig<
     | ScreenListeners<State, EventMap>
     | ((props: {
         route: RouteProp<ParamList, RouteName>;
-        navigation: any;
+        navigation: NavigationProp<
+          ParamList,
+          RouteName,
+          State,
+          ScreenOptions,
+          EventMap
+        >;
       }) => ScreenListeners<State, EventMap>);
 
   /**
@@ -425,7 +437,16 @@ export type RouteConfig<
       /**
        * React component to render for this screen.
        */
-      component: React.ComponentType<any>;
+      component: React.ComponentType<{
+        route: RouteProp<ParamList, RouteName>;
+        navigation: NavigationProp<
+          ParamList,
+          RouteName,
+          State,
+          ScreenOptions,
+          EventMap
+        >;
+      }>;
       getComponent?: never;
       children?: never;
     }
@@ -433,7 +454,16 @@ export type RouteConfig<
       /**
        * Lazily get a React component to render for this screen.
        */
-      getComponent: () => React.ComponentType<any>;
+      getComponent: () => React.ComponentType<{
+        route: RouteProp<ParamList, RouteName>;
+        navigation: NavigationProp<
+          ParamList,
+          RouteName,
+          State,
+          ScreenOptions,
+          EventMap
+        >;
+      }>;
       component?: never;
       children?: never;
     }
@@ -443,7 +473,13 @@ export type RouteConfig<
        */
       children: (props: {
         route: RouteProp<ParamList, RouteName>;
-        navigation: any;
+        navigation: NavigationProp<
+          ParamList,
+          RouteName,
+          State,
+          ScreenOptions,
+          EventMap
+        >;
       }) => React.ReactNode;
       component?: never;
       getComponent?: never;
