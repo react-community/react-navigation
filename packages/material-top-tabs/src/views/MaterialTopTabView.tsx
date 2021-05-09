@@ -29,6 +29,7 @@ export default function MaterialTopTabView({
   navigation,
   descriptors,
   sceneContainerStyle,
+  onIndexChange,
   ...rest
 }: Props) {
   const { colors } = useTheme();
@@ -46,12 +47,13 @@ export default function MaterialTopTabView({
     <NavigationHelpersContext.Provider value={navigation}>
       <TabView<Route<string>>
         {...rest}
-        onIndexChange={(index) =>
+        onIndexChange={(index) => {
           navigation.dispatch({
             ...TabActions.jumpTo(state.routes[index].name),
             target: state.key,
-          })
-        }
+          });
+          onIndexChange?.(index);
+        }}
         renderScene={({ route }) => descriptors[route.key].render()}
         navigationState={state}
         renderTabBar={renderTabBar}

@@ -209,6 +209,10 @@ export type MaterialTopTabNavigationConfig = Omit<
   | 'lazy'
 > & {
   /**
+   * Callback for tab index change
+   */
+  onIndexChange?: (index: number) => void;
+  /**
    * Function that returns a React element to display as the tab bar.
    */
   tabBar?: (props: MaterialTopTabBarProps) => React.ReactNode;
