@@ -46,9 +46,16 @@ const createMemoryHistory = () => {
       const id = window.history.state?.id;
 
       if (id) {
-        const index = items.findIndex((item) => item.id === id);
+        let currentIndex = items.findIndex((item) => item.id === id);
+        if (currentIndex < 0) {
+          currentIndex = 0;
+        }
 
-        return index > -1 ? index : 0;
+        // Fix createMemoryHistory.index variable's value, because it will go out of sync, when navigating
+        // with the browser. The 'popstate' event not sets the createMemoryHistory.index variable, but
+        // calls this function, so the corrrect value can be set.
+        index = currentIndex;
+        return currentIndex;
       }
 
       return 0;
@@ -95,7 +102,12 @@ const createMemoryHistory = () => {
 
       const id = window.history.state?.id ?? nanoid();
 
-      if (items.length) {
+      if (items.findIndex((item) => item.id === id) < 0) {
+        // When loaded id not found in the items array, this function by default will replace
+        // the first item. We need to keep only the new updated object, otherwise it will break
+        // the page when navigating forward in history.
+        items = [{ path, state, id }];
+      } else if (items.length) {
         items[index] = { path, state, id };
       } else {
         // This is the first time any state modifications are done
