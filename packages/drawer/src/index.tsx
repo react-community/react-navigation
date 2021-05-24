@@ -28,6 +28,8 @@ export { default as useDrawerStatus } from './utils/useDrawerStatus';
  * Types
  */
 export type {
+  DrawerNavigationConfig,
+  DrawerNavigationEventMap,
   DrawerNavigationOptions,
   DrawerNavigationProp,
   DrawerScreenProps,
