@@ -555,6 +555,12 @@ export default class CardStack extends React.Component<Props, State> {
               headerTransparent,
               headerStyle,
               headerTintColor,
+              orientation,
+              statusBarAnimation,
+              statusBarColor,
+              statusBarHidden,
+              statusBarStyle,
+              statusBarTranslucent,
             } = scene.descriptor.options;
 
             const safeAreaInsetTop = insets.top;
@@ -607,6 +613,12 @@ export default class CardStack extends React.Component<Props, State> {
                 enabled={detachInactiveScreens}
                 active={isScreenActive}
                 pointerEvents="box-none"
+                orientation={orientation}
+                statusBarAnimation={statusBarAnimation}
+                statusBarColor={statusBarColor}
+                statusBarHidden={statusBarHidden}
+                statusBarStyle={statusBarStyle}
+                statusBarTranslucent={statusBarTranslucent}
               >
                 <CardContainer
                   index={index}

@@ -126,6 +126,7 @@ export default function HeaderConfig({
       largeTitleFontSize={headerLargeTitleStyleFlattened.fontSize}
       largeTitleFontWeight={headerLargeTitleStyleFlattened.fontWeight}
       largeTitleHideShadow={headerLargeTitleShadowVisible === false}
+      // @ts-ignore Renamed from screenOrientation to orientation
       screenOrientation={orientation}
       statusBarAnimation={statusBarAnimation}
       statusBarHidden={statusBarHidden}

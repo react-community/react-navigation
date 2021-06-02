@@ -32,7 +32,6 @@ import {
   Platform,
   ScaledSize,
   ScrollView,
-  StatusBar,
 } from 'react-native';
 import {
   DarkTheme as PaperDarkTheme,
@@ -230,11 +229,6 @@ export default function App() {
 
   return (
     <PaperProvider theme={paperTheme}>
-      <StatusBar
-        translucent
-        barStyle={theme.dark ? 'light-content' : 'dark-content'}
-        backgroundColor="rgba(0, 0, 0, 0.24)"
-      />
       <NavigationContainer
         ref={navigationRef}
         initialState={initialState}
@@ -312,6 +306,9 @@ export default function App() {
         <Stack.Navigator
           screenOptions={{
             headerStyleInterpolator: HeaderStyleInterpolators.forUIKit,
+            statusBarStyle: theme.dark ? 'light' : 'dark',
+            statusBarTranslucent: true,
+            statusBarColor: 'rgba(0, 0, 0, 0.24)',
           }}
         >
           <Stack.Screen

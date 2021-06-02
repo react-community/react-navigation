@@ -2,7 +2,9 @@ import { ResourceSavingView } from '@react-navigation/elements';
 import * as React from 'react';
 import { StyleProp, View, ViewProps, ViewStyle } from 'react-native';
 
-type Props = {
+import type { NativeScreenTraitsProps } from '../types';
+
+type Props = NativeScreenTraitsProps & {
   visible: boolean;
   children: React.ReactNode;
   enabled: boolean;

@@ -35,7 +35,7 @@
     "react-native-paper": "^4.9.1",
     "react-native-reanimated": "~2.1.0",
     "react-native-safe-area-context": "~3.2.0",
-    "react-native-screens": "~3.0.0",
+    "react-native-screens": "^3.0.0",
     "react-native-tab-view": "^3.0.1",
     "react-native-unimodules": "~0.13.1",
     "react-native-vector-icons": "^8.1.0",

@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { Animated, View, ViewProps } from 'react-native';
 
+import type { NativeScreenTraitsProps } from '../types';
+
 let Screens: typeof import('react-native-screens') | undefined;
 
 try {
@@ -27,11 +29,12 @@ export const MaybeScreen = ({
   enabled,
   active,
   ...rest
-}: ViewProps & {
-  enabled: boolean;
-  active: 0 | 1 | Animated.AnimatedInterpolation;
-  children: React.ReactNode;
-}) => {
+}: ViewProps &
+  NativeScreenTraitsProps & {
+    enabled: boolean;
+    active: 0 | 1 | Animated.AnimatedInterpolation;
+    children: React.ReactNode;
+  }) => {
   if (Screens != null) {
     return (
       <Screens.Screen enabled={enabled} activityState={active} {...rest} />

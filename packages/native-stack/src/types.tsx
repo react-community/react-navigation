@@ -9,12 +9,119 @@ import type {
   StackNavigationState,
   StackRouterOptions,
 } from '@react-navigation/native';
-import type { ImageSourcePropType, StyleProp, ViewStyle } from 'react-native';
 import type {
-  ScreenProps,
-  ScreenStackHeaderConfigProps,
-  SearchBarProps,
-} from 'react-native-screens';
+  ImageSourcePropType,
+  NativeSyntheticEvent,
+  StyleProp,
+  TargetedEvent,
+  TextInputFocusEventData,
+  ViewStyle,
+} from 'react-native';
+
+export type PresentationTypes =
+  | 'card'
+  | 'modal'
+  | 'transparentModal'
+  | 'containedModal'
+  | 'containedTransparentModal'
+  | 'fullScreenModal'
+  | 'formSheet';
+export type AnimationTypes =
+  | 'default'
+  | 'fade'
+  | 'flip'
+  | 'none'
+  | 'simple_push'
+  | 'slide_from_bottom'
+  | 'slide_from_right'
+  | 'slide_from_left';
+export type BlurEffectTypes =
+  | 'extraLight'
+  | 'light'
+  | 'dark'
+  | 'regular'
+  | 'prominent'
+  | 'systemUltraThinMaterial'
+  | 'systemThinMaterial'
+  | 'systemMaterial'
+  | 'systemThickMaterial'
+  | 'systemChromeMaterial'
+  | 'systemUltraThinMaterialLight'
+  | 'systemThinMaterialLight'
+  | 'systemMaterialLight'
+  | 'systemThickMaterialLight'
+  | 'systemChromeMaterialLight'
+  | 'systemUltraThinMaterialDark'
+  | 'systemThinMaterialDark'
+  | 'systemMaterialDark'
+  | 'systemThickMaterialDark'
+  | 'systemChromeMaterialDark';
+export type ReplaceTypes = 'push' | 'pop';
+export type OrientationTypes =
+  | 'default'
+  | 'all'
+  | 'portrait'
+  | 'portrait_up'
+  | 'portrait_down'
+  | 'landscape'
+  | 'landscape_left'
+  | 'landscape_right';
+export type HeaderSubviewTypes =
+  | 'back'
+  | 'right'
+  | 'left'
+  | 'center'
+  | 'searchBar';
+export type StatusBarAnimationTypes = 'none' | 'fade' | 'slide';
+export type StatusBarStyleTypes = 'inverted' | 'auto' | 'light' | 'dark';
+export interface SearchBarProps {
+  /**
+   * Indicates whether to to obscure the underlying content
+   */
+  obscureBackground?: boolean;
+  /**
+   * Indicates whether to hide the navigation bar
+   */
+  hideNavigationBar?: boolean;
+  /**
+   * Indicates whether to hide the search bar when scrolling
+   */
+  hideWhenScrolling?: boolean;
+  /**
+   * The auto-capitalization behavior
+   */
+  autoCapitalize?: 'none' | 'words' | 'sentences' | 'characters';
+  /**
+   * Text displayed when search field is empty
+   */
+  placeholder?: string;
+  /**
+   * The search field background color
+   */
+  barTintColor?: string;
+  /**
+   * A callback that gets called when the text changes. It receives the current text value of the search bar.
+   */
+  onChangeText?: (e: NativeSyntheticEvent<TextInputFocusEventData>) => void;
+  /**
+   * A callback that gets called when the cancel button is pressed
+   */
+  onCancelButtonPress?: (e: NativeSyntheticEvent<TargetedEvent>) => void;
+  /**
+   * A callback that gets called when the search button is pressed. It receives the current text value of the search bar.
+   */
+  onSearchButtonPress?: (
+    e: NativeSyntheticEvent<TextInputFocusEventData>
+  ) => void;
+  /**
+   * A callback that gets called when search bar has received focus
+   */
+  onFocus?: (e: NativeSyntheticEvent<TargetedEvent>) => void;
+  /**
+   * A callback that gets called when search bar has lost focus
+   */
+  onBlur?: (e: NativeSyntheticEvent<TargetedEvent>) => void;
+}
 
 export type NativeStackNavigationEventMap = {
   /**
@@ -181,7 +288,7 @@ export type NativeStackNavigationOptions = {
    *
    * @platform ios
    */
-  headerBlurEffect?: ScreenStackHeaderConfigProps['blurEffect'];
+  headerBlurEffect?: BlurEffectTypes;
   /**
    * Tint color for the header. Changes the color of back button and title.
    */
@@ -238,30 +345,35 @@ export type NativeStackNavigationOptions = {
   /**
    * Sets the status bar animation (similar to the `StatusBar` component).
    * Requires setting `View controller-based status bar appearance -> YES` (or removing the config) in your `Info.plist` file.
-   *
-   * Only supported on iOS.
-   *
-   * @platform ios
+   * On Android, requires `react-native-screens` version >=3.3.0.
    */
-  statusBarAnimation?: ScreenStackHeaderConfigProps['statusBarAnimation'];
+  statusBarAnimation?: StatusBarAnimationTypes;
+  /**
+   * Sets the status bar color (similar to the `StatusBar` component). Defaults to initial status bar color.
+   * Requires `react-native-screens` version >=3.3.0.
+   *
+   * @platform android
+   */
+  statusBarColor?: string;
   /**
    * Whether the status bar should be hidden on this screen.
    * Requires setting `View controller-based status bar appearance -> YES` in your Info.plist file.
-   *
-   * Only supported on iOS.
-   *
-   * @platform ios
+   * On Android, requires `react-native-screens` version >=3.3.0.
    */
   statusBarHidden?: boolean;
   /**
    * Sets the status bar color (similar to the `StatusBar` component).
    * Requires setting `View controller-based status bar appearance -> YES` (or removing the config) in your `Info.plist` file.
-   *
-   * Only supported on iOS.
-   *
-   * @platform ios
+   * On Android, requires `react-native-screens` version >=3.3.0.
    */
-  statusBarStyle?: ScreenStackHeaderConfigProps['statusBarStyle'];
+  statusBarStyle?: StatusBarStyleTypes;
+  /**
+   * Sets the translucency of the status bar. Defaults to `false`.
+   * Requires `react-native-screens` version >=3.3.0.
+   *
+   * @platform android
+   */
+  statusBarTranslucent?: boolean;
   /**
    * Style object for the scene content.
    */
@@ -280,7 +392,7 @@ export type NativeStackNavigationOptions = {
    * - "push": the new screen will perform push animation.
    * - "pop": the new screen will perform pop animation.
    */
-  animationTypeForReplace?: ScreenProps['replaceAnimation'];
+  animationTypeForReplace?: ReplaceTypes;
   /**
    * How the screen should animate when pushed or popped.
    *
@@ -292,7 +404,7 @@ export type NativeStackNavigationOptions = {
    * - "slide_from_left": slide in the new screen from left (Android only, uses default animation on iOS)
    * - "none": don't animate the screen
    */
-  animation?: ScreenProps['stackAnimation'];
+  animation?: AnimationTypes;
   /**
    * How should the screen be presented.
    *
@@ -305,7 +417,7 @@ export type NativeStackNavigationOptions = {
    * - "fullScreenModal": will use "UIModalPresentationFullScreen" modal style on iOS and will fallback to "modal" on Android.
    * - "formSheet": will use "UIModalPresentationFormSheet" modal style on iOS and will fallback to "modal" on Android.
    */
-  presentation?: Exclude<ScreenProps['stackPresentation'], 'push'> | 'card';
+  presentation?: PresentationTypes;
   /**
    * The display orientation to use for the screen.
    *
@@ -319,7 +431,7 @@ export type NativeStackNavigationOptions = {
    * - "landscape_left": landscape-left orientation is permitted.
    * - "landscape_right": landscape-right orientation is permitted.
    */
-  orientation?: ScreenStackHeaderConfigProps['screenOrientation'];
+  orientation?: OrientationTypes;
 };
 
 export type NativeStackNavigatorProps = DefaultNavigatorOptions<
