@@ -225,7 +225,7 @@ function DrawerViewBase({
           return (
             <MaybeScreen
               key={route.key}
-              style={[StyleSheet.absoluteFill, { opacity: isFocused ? 1 : 0 }]}
+              style={[StyleSheet.absoluteFill, { zIndex: isFocused ? 0 : -1 }]}
               visible={isFocused}
               enabled={detachInactiveScreens}
             >
