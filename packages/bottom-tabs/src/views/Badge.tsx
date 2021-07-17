@@ -23,14 +23,14 @@ type Props = {
 };
 
 export default function Badge({
-  visible = true,
-  size = 18,
   children,
   style,
+  visible = true,
+  size = 18,
   ...rest
 }: Props) {
   const [opacity] = React.useState(() => new Animated.Value(visible ? 1 : 0));
-  const [rendered, setRendered] = React.useState(visible ? true : false);
+  const [rendered, setRendered] = React.useState(visible);
 
   const theme = useTheme();
 
@@ -50,12 +50,12 @@ export default function Badge({
     });
   }, [opacity, rendered, visible]);
 
-  if (visible && !rendered) {
-    setRendered(true);
-  }
-
-  if (!visible && !rendered) {
-    return null;
+  if (!rendered) {
+    if (visible) {
+      setRendered(true);
+    } else {
+      return null;
+    }
   }
 
   // @ts-expect-error: backgroundColor definitely exists
@@ -71,7 +71,6 @@ export default function Badge({
       numberOfLines={1}
       style={[
         {
-          opacity,
           transform: [
             {
               scale: opacity.interpolate({
@@ -80,12 +79,13 @@ export default function Badge({
               }),
             },
           ],
-          backgroundColor,
           color: textColor,
-          fontSize,
           lineHeight: size - 1,
           height: size,
           minWidth: size,
+          opacity,
+          backgroundColor,
+          fontSize,
           borderRadius,
         },
         styles.container,
