@@ -1,0 +1,13 @@
+{
+  "name": "cli",
+  "version": "1.0.0",
+  "description": "A React-Navigation CLI",
+  "main": "src/index.ts",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^6.2.0",
+    "node-fetch": "^2.6.1",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.5"
+  }
+}
