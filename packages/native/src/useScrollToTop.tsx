@@ -49,53 +49,62 @@ export default function useScrollToTop(
   const route = useRoute();
 
   React.useEffect(() => {
-    let current = navigation;
+    let tabNavigators = [];
+    let currentNavigator = navigation;
 
     // The screen might be inside another navigator such as stack nested in tabs
-    // We need to find the closest tab navigator and add the listener there
-    while (current && current.getState().type !== 'tab') {
-      current = current.getParent();
+    // The screen might be in multiple tab bars (as a top tab bar and a bottom tab bar and we want both events to work)
+    // We need to find the closest tab navigators and add the listener there
+    while (currentNavigator) {
+      if(currentNavigator.getState().type === 'tab') {
+        tabNavigators = tabNavigators.concat(currentNavigator);
+      }
+      currentNavigator = currentNavigator.getParent();
     }
 
-    if (!current) {
+    if (tabNavigators.length === 0) {
       return;
     }
 
-    const unsubscribe = current.addListener(
-      // We don't wanna import tab types here to avoid extra deps
-      // in addition, there are multiple tab implementations
-      // @ts-expect-error
-      'tabPress',
-      (e: EventArg<'tabPress', true>) => {
-        // We should scroll to top only when the screen is focused
-        const isFocused = navigation.isFocused();
+    const unsubscribers = tabNavigators.map(tabNavigator => {
+      return tabNavigator.addListener(
+        // We don't wanna import tab types here to avoid extra deps
+        // in addition, there are multiple tab implementations
+        // @ts-expect-error
+        'tabPress',
+        (e: EventArg<'tabPress', true>) => {
+          // We should scroll to top only when the screen is focused
+          const isFocused = navigation.isFocused();
 
-        // In a nested stack navigator, tab press resets the stack to first screen
-        // So we should scroll to top only when we are on first screen
-        const isFirst =
-          navigation === current ||
-          navigation.getState().routes[0].key === route.key;
+          // In a nested stack navigator, tab press resets the stack to first screen
+          // So we should scroll to top only when we are inside a tab navigator
+          const isTabNavigator =
+            tabNavigators.includes(navigation) ||
+            navigation.getState().routes[0].key === route.key;
 
-        // Run the operation in the next frame so we're sure all listeners have been run
-        // This is necessary to know if preventDefault() has been called
-        requestAnimationFrame(() => {
-          const scrollable = getScrollableNode(ref) as ScrollableWrapper;
+          // Run the operation in the next frame so we're sure all listeners have been run
+          // This is necessary to know if preventDefault() has been called
+          requestAnimationFrame(() => {
+            const scrollable = getScrollableNode(ref) as ScrollableWrapper;
 
-          if (isFocused && isFirst && scrollable && !e.defaultPrevented) {
-            if ('scrollToTop' in scrollable) {
-              scrollable.scrollToTop();
-            } else if ('scrollTo' in scrollable) {
-              scrollable.scrollTo({ y: 0, animated: true });
-            } else if ('scrollToOffset' in scrollable) {
-              scrollable.scrollToOffset({ offset: 0, animated: true });
-            } else if ('scrollResponderScrollTo' in scrollable) {
-              scrollable.scrollResponderScrollTo({ y: 0, animated: true });
+            if (isFocused && isTabNavigator && scrollable && !e.defaultPrevented) {
+              if ('scrollToTop' in scrollable) {
+                scrollable.scrollToTop();
+              } else if ('scrollTo' in scrollable) {
+                scrollable.scrollTo({ y: 0, animated: true });
+              } else if ('scrollToOffset' in scrollable) {
+                scrollable.scrollToOffset({ offset: 0, animated: true });
+              } else if ('scrollResponderScrollTo' in scrollable) {
+                scrollable.scrollResponderScrollTo({ y: 0, animated: true });
+              }
             }
-          }
-        });
-      }
-    );
+          });
+        }
+      );
+    })
 
-    return unsubscribe;
+    return () => {
+        unsubscribers.map(unsubscribe => unsubscribe())
+    };
   }, [navigation, ref, route.key]);
 }
