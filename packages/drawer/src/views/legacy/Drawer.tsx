@@ -13,7 +13,11 @@ import Animated from 'react-native-reanimated';
 
 import type { DrawerProps } from '../../types';
 import DrawerProgressContext from '../../utils/DrawerProgressContext';
-import { GestureState, PanGestureHandler } from '../GestureHandler';
+import {
+  GestureState,
+  PanGestureHandler,
+  PanGestureHandlerGestureEvent,
+} from '../GestureHandler';
 import Overlay from './Overlay';
 
 const {
@@ -32,7 +36,6 @@ const {
   cond,
   divide,
   eq,
-  event,
   greaterThan,
   lessThan,
   max,
@@ -427,23 +430,17 @@ export default class DrawerView extends React.Component<DrawerProps> {
     abs(divide(this.translateX, this.drawerWidth))
   );
 
-  private handleGestureEvent = event([
-    {
-      nativeEvent: {
-        x: this.touchX,
-        translationX: this.gestureX,
-        velocityX: this.velocityX,
-      },
-    },
-  ]);
+  private handleGestureEvent = (e: PanGestureHandlerGestureEvent) => {
+    const nativeEvent = e.nativeEvent;
 
-  private handleGestureStateChange = event([
-    {
-      nativeEvent: {
-        state: (s: Animated.Value<number>) => set(this.gestureState, s),
-      },
-    },
-  ]);
+    this.touchX.setValue(nativeEvent.x);
+    this.gestureX.setValue(nativeEvent.translationX);
+    this.velocityX.setValue(nativeEvent.velocityX);
+  };
+
+  private handleGestureStateChange = (e: PanGestureHandlerGestureEvent) => {
+    this.gestureState.setValue(e.nativeEvent.state);
+  };
 
   private handleContainerLayout = (e: LayoutChangeEvent) =>
     this.containerWidth.setValue(e.nativeEvent.layout.width);
