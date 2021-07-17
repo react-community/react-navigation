@@ -28,6 +28,24 @@ export default function DrawerItemList({
 
   return state.routes.map((route, i) => {
     const focused = i === state.index;
+
+    const onPress = () => {
+      const event = navigation.emit({
+        type: 'drawerPress',
+        target: route.key,
+        canPreventDefault: true,
+      });
+
+      if (!focused && !event.defaultPrevented) {
+        navigation.dispatch({
+          ...(focused
+            ? DrawerActions.closeDrawer()
+            : CommonActions.navigate(route.name)),
+          target: state.key,
+        });
+      }
+    };
+
     const {
       title,
       drawerLabel,
@@ -59,14 +77,7 @@ export default function DrawerItemList({
         labelStyle={drawerLabelStyle}
         style={drawerItemStyle}
         to={buildLink(route.name, route.params)}
-        onPress={() => {
-          navigation.dispatch({
-            ...(focused
-              ? DrawerActions.closeDrawer()
-              : CommonActions.navigate(route.name)),
-            target: state.key,
-          });
-        }}
+        onPress={onPress}
       />
     );
   }) as React.ReactNode as React.ReactElement;
